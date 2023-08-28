@@ -100,12 +100,8 @@ class NPCGeneratorGPT extends Application {
     }
 
     async _onCreateNPC(data) {
-        console.log("dentro create npc data:", data);
-
         data = this._convertGPTData(data);
         if (!data) return;
-
-        console.log("dopo convert npc:", data);
 
         try {
             
