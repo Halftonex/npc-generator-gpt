@@ -1,0 +1,122 @@
+{
+    "npc-generator-gpt.settings" : {
+        "hideAlignment": {
+            "name": "Hide Alignment",
+            "hint": "Replaces the alignment with \"Unknown\" if you wish to hide it from the players. The alignment will still be imported into the secret section within the \"Biography\"."
+        },
+        "movementUnits": {
+            "name": "Use Metric System",
+            "hint": "When enabled, the metric system will be used for the movement measurement of the generated character, rather than the imperial system."
+        },        
+        "temperature": {
+            "name": "Temperature",
+            "hint": "This parameter affects the \"creativity\" of the model's responses. Higher values (close to 1) make the responses more random, while lower values (close to 0) make them more deterministic and focused. A high value might lead to greater variety in responses, but could also produce less predictable output."
+        },
+        "top_p": {
+            "name": "Top P",
+            "hint": "Also known as \"nucleus sampling\", this parameter limits the pool of words or tokens the model might select based on probability. For example, with a top_p=0.9, the model will choose from the \"top\" 90% of the predicted words or tokens, excluding less probable options. This can help strike a balance between diversity and coherence in the output."
+        },        
+        "freq_penality": {
+            "name": "Frequency Penalty",
+            "hint": "This parameter can be used to discourage answers that appear too often or are too common. Positive values penalize the use of frequent words, leading to potentially more original answers, while negative values encourage the use of frequent words."
+        },
+        "pres_penality": {
+            "name": "Presence Penalty",
+            "hint": "This parameter influences the model's tendency to include or exclude specific words or concepts in the answer. Positive values encourage the inclusion of specific concepts, while negative values discourage them."
+        }        
+    },
+
+    "npc-generator-gpt.button": "Generate NPC",
+
+    "npc-generator-gpt.dialog.title": "NPC Generator (GPT) - Preferences",
+    "npc-generator-gpt.dialog.button": "Create NPC",
+    "npc-generator-gpt.dialog.random": "Random",
+
+    "npc-generator-gpt.dialog.gender": "Gender",
+    "npc-generator-gpt.dialog.male": "Male",
+    "npc-generator-gpt.dialog.female": "Female",
+
+    "npc-generator-gpt.dialog.race": "Race",
+    "npc-generator-gpt.dialog.dragonborn": "Dragonborn",
+    "npc-generator-gpt.dialog.dwarf": "Dwarf",
+    "npc-generator-gpt.dialog.elf": "Elf",
+    "npc-generator-gpt.dialog.gnome": "Gnome",
+    "npc-generator-gpt.dialog.halfelf": "Half-Elf",
+    "npc-generator-gpt.dialog.halfling": "Halfling",
+    "npc-generator-gpt.dialog.halforc": "Half-Orc",
+    "npc-generator-gpt.dialog.human": "Human",
+    "npc-generator-gpt.dialog.tiefling": "Tiefling",
+
+    "npc-generator-gpt.dialog.class": "Class",
+    "npc-generator-gpt.dialog.barbarian": "Barbarian",
+    "npc-generator-gpt.dialog.bard": "Bard",
+    "npc-generator-gpt.dialog.cleric": "Cleric",
+    "npc-generator-gpt.dialog.druid": "Druid",
+    "npc-generator-gpt.dialog.fighter": "Fighter",
+    "npc-generator-gpt.dialog.monk": "Monk",
+    "npc-generator-gpt.dialog.paladin": "Paladin",
+    "npc-generator-gpt.dialog.ranger": "Ranger",
+    "npc-generator-gpt.dialog.rogue": "Rogue",
+    "npc-generator-gpt.dialog.sorcerer": "Sorcerer",
+    "npc-generator-gpt.dialog.warlock": "Warlock",
+    "npc-generator-gpt.dialog.wizard": "Wizard",
+
+    "npc-generator-gpt.dialog.cr": "CR",
+
+    "npc-generator-gpt.dialog.alignment": "Alignment",
+    "npc-generator-gpt.dialog.lg": "Lawful Good",
+    "npc-generator-gpt.dialog.ng": "Neutral Good",
+    "npc-generator-gpt.dialog.cg": "Chaotic Good",
+    "npc-generator-gpt.dialog.ln": "Lawful Neutral",
+    "npc-generator-gpt.dialog.n": "Neutral",
+    "npc-generator-gpt.dialog.cn": "Chaotic Neutral",
+    "npc-generator-gpt.dialog.le": "Lawful Evil",
+    "npc-generator-gpt.dialog.ne": "Neutral Evil",
+    "npc-generator-gpt.dialog.ce": "Chaotic Evil",
+
+    "npc-generator-gpt.status": {
+        "pending": "NPC Generator (GPT) | Sending Request! Please wait, it might take a few seconds.",
+        "done": "NPC Generator (GPT) | NPC Generation Completed!",
+        "error_conv": "NPC Generator (GPT) | Error processing ChatGPT's response! Try again.",
+        "error_gen": "NPC Generator (GPT) | Error creating the NPC! Try again.",
+        "wait": "NPC Generator (GPT) | Please wait. A request is already being processed."
+    },
+
+    "npc-generator-gpt.query": {
+        "pre": "Create an NPC",
+        "post": "for D&D 5e. Structure:",
+        "name": "Name",
+        "race": "Race",
+        "class": "Class",
+        "size": "Size",
+        "background": "Short biography",
+        "appearance": "Appearance",
+        "roleplaying": "Roleplaying tips",
+        "equip": "Equipment",
+        "spells": "Spells",
+        "hp": "Health Points",
+        "cr": "Challenge Rating",
+        "movement": "Walking Speed",
+        "alignment": "Alignment (Lawful Good, Chaotic Evil, etc)",
+        "str": "Strength",
+        "dex": "Dexterity",
+        "con": "Constitution",
+        "int": "Intelligence",
+        "wis": "Wisdom",
+        "cha": "Charisma",
+        "prof": "Competenze Caratteristiche",
+        "skills": "Skills Proficiencies"
+    },
+
+    "npc-generator-gpt.sheet": {
+        "source": "NPC Generator (GPT)",
+        "appearance": "Appearance",
+        "background": "Background",
+        "alignment": "Alignment",
+        "class": "Class",
+        "unknown": "Unknown",
+        "roleplaying": "Roleplaying Tips",
+        "equip": "Equipment",
+        "spells": "Spells"
+    } 
+}
