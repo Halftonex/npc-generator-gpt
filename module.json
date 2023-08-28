@@ -1,0 +1,54 @@
+{
+  "id": "npc-generator-gpt",
+  "title": "NPC Generator (GPT) D&D 5e",
+  "description": "NPC generator for D&D5e powered by ChatGPT",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11.308"
+  },
+  "authors": [
+    {
+      "name": "Halftone",
+      "discord": "half.tone"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "2.3.0",
+          "verified": "2.3.0"
+        }
+      }
+    ]
+  },
+  "styles": [
+    "styles/npc-generator-gpt.css"
+  ],
+  "scripts": [
+    "scripts/npc-generator-gpt.js",
+    "scripts/settings.js"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "it",
+      "name": "Italian",
+      "path": "lang/it.json"
+    }
+  ],
+  "bugs": "https://github.com/Halftonex/npc-generator-gpt/issues",
+  "flags": {
+    "allowBugReporter": true
+  },
+  "url": "https://github.com/Halftonex/npc-generator-gpt",
+  "manifest": "https://github.com/Halftonex/npc-generator-gpt/releases/latest/download/module.json",
+  "download": "https://github.com/Halftonex/npc-generator-gpt/releases/latest/download/module.zip"
+}
