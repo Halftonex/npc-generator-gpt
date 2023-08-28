@@ -1,0 +1,122 @@
+{
+    "npc-generator-gpt.settings" : {
+        "hideAlignment": {
+            "name": "Nascondi Allineamento",
+            "hint": "Sostituisce l'allineamento con \"Sconosciuto\" nel caso in cui lo si volesse nascondere ai giocatori. L'allineamento verrà comunque importato nella sezione segreta all'interno della \"Biografia\"."
+        },
+        "movementUnits": {
+            "name": "Usa Sistema Metrico",
+            "hint": "Se attivato, usa il sistema metrico invece che quello imperiale come sistema di misura per il movimento del personaggio generato."
+        },
+        "temperature": {
+            "name": "Temperatura",
+            "hint": "Questo parametro influisce sulla \"creatività\" delle risposte del modello. Valori elevati (vicini a 1) rendono le risposte più casuali, mentre valori bassi (vicini a 0) le rendono più deterministe e focalizzate. Un valore alto potrebbe portare a una varietà maggiore nelle risposte, ma potrebbe anche produrre output meno prevedibili."
+        },
+        "top_p": {
+            "name": "Top P",
+            "hint": "Anche noto come \"nucleus sampling\", questo parametro limita il pool di parole o token che il modello potrebbe scegliere basandosi sulla probabilità. Ad esempio, con un valore di top_p=0.9, il modello sceglierà dalla \"top\" 90% delle parole o token previsti, escludendo opzioni meno probabili. Questo può aiutare a bilanciare tra diversità e coerenza nell'output."
+        },
+        "freq_penality": {
+            "name": "Penalità di Frequenza",
+            "hint": "Questo parametro può essere utilizzato per disincentivare risposte che appaiono troppo spesso o sono troppo comuni. Valori positivi puniscono l'uso di parole frequenti, portando a risposte potenzialmente più originali, mentre valori negativi incentivano l'uso di parole frequenti."
+        },
+        "pres_penality": {
+            "name": "Penalità di Presenza",
+            "hint": "Questo parametro influisce sulla tendenza del modello a includere o escludere specifiche parole o concetti nella risposta. Valori positivi incentivano l'inclusione di specifici concetti, mentre valori negativi li disincentivano."
+        }
+    },
+
+    "npc-generator-gpt.button": "Genera NPC",
+
+    "npc-generator-gpt.dialog.title": "Creazione NPC",
+    "npc-generator-gpt.dialog.button": "Crea NPC",
+    "npc-generator-gpt.dialog.random": "Casuale",
+
+    "npc-generator-gpt.dialog.gender": "Sesso",
+    "npc-generator-gpt.dialog.male": "Maschio",
+    "npc-generator-gpt.dialog.female": "Femmina",
+
+    "npc-generator-gpt.dialog.race": "Razza",
+    "npc-generator-gpt.dialog.dragonborn": "Dragonide",
+    "npc-generator-gpt.dialog.dwarf": "Nano",
+    "npc-generator-gpt.dialog.elf": "Elfo",
+    "npc-generator-gpt.dialog.gnome": "Gnomo",
+    "npc-generator-gpt.dialog.halfelf": "Mezzelfo",
+    "npc-generator-gpt.dialog.halfling": "Halfling",
+    "npc-generator-gpt.dialog.halforc": "Mezzorco",
+    "npc-generator-gpt.dialog.human": "Umano",
+    "npc-generator-gpt.dialog.tiefling": "Tiefling",
+
+    "npc-generator-gpt.dialog.class": "Classe",
+    "npc-generator-gpt.dialog.barbarian": "Barbaro",
+    "npc-generator-gpt.dialog.bard": "Bardo",
+    "npc-generator-gpt.dialog.cleric": "Chierico",
+    "npc-generator-gpt.dialog.druid": "Druido",
+    "npc-generator-gpt.dialog.fighter": "Guerriero",
+    "npc-generator-gpt.dialog.monk": "Monaco",
+    "npc-generator-gpt.dialog.paladin": "Paladino",
+    "npc-generator-gpt.dialog.ranger": "Ranger",
+    "npc-generator-gpt.dialog.rogue": "Ladro",
+    "npc-generator-gpt.dialog.sorcerer": "Stregone",
+    "npc-generator-gpt.dialog.warlock": "Warlock",
+    "npc-generator-gpt.dialog.wizard": "Mago",
+
+    "npc-generator-gpt.dialog.cr": "CR",
+
+    "npc-generator-gpt.dialog.alignment": "Allineamento",
+    "npc-generator-gpt.dialog.lg": "Legale Buono",
+    "npc-generator-gpt.dialog.ng": "Neutrale Buono",
+    "npc-generator-gpt.dialog.cg": "Caotico Buono",
+    "npc-generator-gpt.dialog.ln": "Legale Neutrale",
+    "npc-generator-gpt.dialog.n": "Neutrale Puro",
+    "npc-generator-gpt.dialog.cn": "Caotico Neutrale",
+    "npc-generator-gpt.dialog.le": "Legale Malvagio",
+    "npc-generator-gpt.dialog.ne": "Neutrale Malvagio",
+    "npc-generator-gpt.dialog.ce": "Caotico Malvagio",
+
+    "npc-generator-gpt.status": {
+        "pending": "NPC Generator (GPT) | Invio Richiesta! Attendere prego, potrebbe essere necessario qualche secondo.", 
+        "done": "NPC Generator (GPT) | Generazione NPC Completata!",
+        "error_conv": "NPC Generator (GPT) | Errore nell'elaborazione della risposta di ChatGPT! Riprovare.",
+        "error_gen": "NPC Generator (GPT) | Errore nella creazione del NPC! Riprovare.",
+        "wait": "NPC Generator (GPT) | Per favore, attendi. Una richiesta è già in fase di elaborazione."
+    },
+
+    "npc-generator-gpt.query": {
+        "pre": "Crea un NPC",
+        "post": "per D&D 5 Edizione con valori in italiano. Struttura:",
+        "name": "Nome",
+        "race": "Razza",
+        "class": "Classe",
+        "size": "Taglia",
+        "background": "Breve biografia",
+        "appearance": "Descrizione fisica",
+        "roleplaying": "Consigli per l'interpretazione",
+        "equip": "Equipaggiamento",
+        "spells": "Incantesimi",
+        "hp": "Punti ferita",
+        "cr": "Grado di sfida",
+        "movement": "Velocità Movimento",
+        "alignment": "Allineamento (Legale Buono, Caotico Malvagio, etc)",
+        "str": "Forza",
+        "dex": "Destrezza",
+        "con": "Costituzione",
+        "int": "Intelligenza",
+        "wis": "Saggezza",
+        "cha": "Carisma",
+        "prof": "Competenze Caratteristiche",
+        "skills": "Competenze Abilità"
+    },
+
+    "npc-generator-gpt.sheet": {
+        "source": "NPC Generator (GPT)",
+        "appearance": "Aspetto",
+        "background": "Biografia",
+        "alignment": "Allineamento",
+        "class": "Classe",
+        "unknown": "Sconosciuto",
+        "roleplaying": "Interpretazione",
+        "equip": "Equipaggiamento",
+        "spells": "Incantesimi"
+    } 
+}
