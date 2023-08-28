@@ -1,0 +1,13 @@
+.npc-generator-gpt table { 
+    background: none; 
+    border: none;
+}
+.npc-generator-gpt tr { background: none !important; }
+.npc-generator-gpt select { width: 80%; }
+.npc-generator-gpt button:hover {
+    color: white;
+    font-weight: bold;
+    background: teal;
+    box-shadow: 0 0 7px teal;
+}
+.npc-generator-gpt button:focus { box-shadow: 0 0 7px teal; }
