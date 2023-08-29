@@ -90,7 +90,6 @@ class NPCGeneratorGPT extends Application {
                     }
                 ],
                 "temperature": game.settings.get(MODULE_ID, "temperature"),
-                "max_tokens": 4095,
                 "top_p": game.settings.get(MODULE_ID, "top_p"),
                 "frequency_penalty": game.settings.get(MODULE_ID, "freq_penality"),
                 "presence_penalty": game.settings.get(MODULE_ID, "pres_penality")
