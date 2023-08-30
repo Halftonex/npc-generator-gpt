@@ -52,28 +52,29 @@ class NPCGeneratorGPT extends Application {
             return;
         }
 
+        const button = this.element.find('#npcGen_create-btn');
+        button.text(game.i18n.localize("npc-generator-gpt.dialog.buttonPending"));
+
         const content = await this._initQuery();
         const requestConfig = this._getRequestConfig(content);
+        
         this.isRequesting = true;
-
         console.log(`${LOG_PREFIX} Sending Request`);
-        ui.notifications.info(game.i18n.localize("npc-generator-gpt.status.pending"));
 
         try {
             const response = await fetch(API_URL, requestConfig);
             const responseData = await response.json();
 
             if (!response.ok) {
-                const apiError = typeof responseData.error.message === 'string' ? responseData.error.message : responseData.error.message.message;
-                ui.notifications.error(`ChatGPT |  ${apiError}`);
+                ui.notifications.error(game.i18n.localize("npc-generator-gpt.status.error"));
                 throw new Error(response.status);
             }
 
             this._onCreateNPC(responseData);
-
         } catch (error) {
             console.error(error);
         } finally {
+            button.text(game.i18n.localize("npc-generator-gpt.dialog.button"));
             this.isRequesting = false;
         }
     }
@@ -131,45 +132,44 @@ class NPCGeneratorGPT extends Application {
             });
 
             this.close();
-            ui.notifications.info(game.i18n.localize("npc-generator-gpt.status.done"));
+            ui.notifications.info(game.i18n.format("npc-generator-gpt.status.done", { npcName: name }));
         } catch (error) {
             console.error(`${LOG_PREFIX} Error during NPC creation:`, error);
-            ui.notifications.error(game.i18n.localize("npc-generator-gpt.status.error_gen"));
+            ui.notifications.error(game.i18n.localize("npc-generator-gpt.status.error2"));
         }
     }
 
     async _initQuery() {
         const ids = ['gender', 'race', 'class', 'cr', 'alignment'];
         const langRandom = game.i18n.localize("npc-generator-gpt.dialog.random");
-
-        const selectedOptions = ids.map(info => {
-            const data = this.element.find(`#${info} option:selected`).text();
-            return (data === langRandom) ? '' : (info === 'cr') ? `CR ${data}` : data;
-        }).filter(Boolean);
-        
+    
+        const selectedOptions = ids
+            .map(id => {
+                const selectedText = this.element.find(`#${id} option:selected`).text();
+                return selectedText === langRandom ? '' : id === 'cr' ? `CR ${selectedText}` : selectedText;
+            })
+            .filter(Boolean)
+            .join(", "); 
+    
         const template = await this._getTemplateStructure(TEMPLATE_QUERY, this.dnd5eUnits);
-
-        const query = [
-            game.i18n.localize("npc-generator-gpt.query.pre"),
-            ...selectedOptions,
-            game.i18n.localize("npc-generator-gpt.query.post"),
-            template
-        ].join(' ');
-
+        const query = `${game.i18n.format("npc-generator-gpt.query.pre", { userQuery: selectedOptions })} ${template}`;
+    
+        console.log(query);
         return query;
-    }
+    }    
 
-    _convertGPTData(content) { 
+    _convertGPTData(content) {
         try {
             const regex = /```json([\s\S]*?)```/;
-            content = JSON.parse(regex.exec(content.choices[0].message.content)[1]);
-            return content;
+            const parsedContent = JSON.parse(regex.exec(content.choices[0].message.content)[1]);
+            return parsedContent;
         } catch (error) {
-            console.error(game.i18n.localize("npc-generator-gpt.status.error_conv"), error);
-            ui.notifications.error(game.i18n.localize("npc-generator-gpt.status.error_conv"));
+            const errorMsg = game.i18n.localize("npc-generator-gpt.status.error3");
+            console.error(errorMsg, error);
+            ui.notifications.error(errorMsg);
             return null;
         }
-    } 
+    }    
 
     async _getTemplateStructure(path, data) {
         try {
