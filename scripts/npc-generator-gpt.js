@@ -154,7 +154,6 @@ class NPCGeneratorGPT extends Application {
         const template = await this._getTemplateStructure(TEMPLATE_QUERY, this.dnd5eUnits);
         const query = `${game.i18n.format("npc-generator-gpt.query.pre", { userQuery: selectedOptions })} ${template}`;
     
-        console.log(query);
         return query;
     }    
 
