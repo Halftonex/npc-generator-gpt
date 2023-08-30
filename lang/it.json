@@ -30,6 +30,7 @@
 
     "npc-generator-gpt.dialog.title": "Creazione NPC",
     "npc-generator-gpt.dialog.button": "Crea NPC",
+    "npc-generator-gpt.dialog.buttonPending": "Connessione...",
     "npc-generator-gpt.dialog.random": "Casuale",
 
     "npc-generator-gpt.dialog.gender": "Sesso",
@@ -75,16 +76,15 @@
     "npc-generator-gpt.dialog.ce": "Caotico Malvagio",
 
     "npc-generator-gpt.status": {
-        "pending": "NPC Generator (GPT) | Invio Richiesta! Attendere prego, potrebbe essere necessario qualche secondo.", 
-        "done": "NPC Generator (GPT) | Generazione NPC Completata!",
-        "error_conv": "NPC Generator (GPT) | Errore nell'elaborazione della risposta di ChatGPT! Riprovare.",
-        "error_gen": "NPC Generator (GPT) | Errore nella creazione del NPC! Riprovare.",
+        "done": "NPC Generator (GPT) | Generazione NPC '{npcName}' Completata!",
+        "error": "NPC Generator (GPT) | Richiesta Rifiutata! Attendi qualche secondo e riprova.",
+        "error2": "NPC Generator (GPT) | Errore nell'elaborazione della risposta di ChatGPT! Riprovare.",
+        "error3": "NPC Generator (GPT) | Errore nella creazione del NPC! Riprovare.",
         "wait": "NPC Generator (GPT) | Per favore, attendi. Una richiesta è già in fase di elaborazione."
     },
 
     "npc-generator-gpt.query": {
-        "pre": "Crea un NPC",
-        "post": "per D&D 5 Edizione con valori in italiano. Struttura:",
+        "pre": "Crea un NPC {userQuery} per D&D 5 Edizione con valori in italiano. Struttura:",
         "name": "Nome",
         "race": "Razza",
         "class": "Classe",

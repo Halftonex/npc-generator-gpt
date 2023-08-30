@@ -30,6 +30,7 @@
 
     "npc-generator-gpt.dialog.title": "NPC Generator (GPT) - Preferences",
     "npc-generator-gpt.dialog.button": "Create NPC",
+    "npc-generator-gpt.dialog.buttonPending": "Connecting...",
     "npc-generator-gpt.dialog.random": "Random",
 
     "npc-generator-gpt.dialog.gender": "Gender",
@@ -75,16 +76,15 @@
     "npc-generator-gpt.dialog.ce": "Chaotic Evil",
 
     "npc-generator-gpt.status": {
-        "pending": "NPC Generator (GPT) | Sending Request! Please wait, it might take a few seconds.",
-        "done": "NPC Generator (GPT) | NPC Generation Completed!",
-        "error_conv": "NPC Generator (GPT) | Error processing ChatGPT's response! Try again.",
-        "error_gen": "NPC Generator (GPT) | Error creating the NPC! Try again.",
+        "done": "NPC Generator (GPT) | NPC '{npcName}' Generation Completed!",
+        "error": "NPC Generator (GPT) | Request Denied! Wait a few seconds and try again.",
+        "error2": "NPC Generator (GPT) | Error processing ChatGPT's response! Try again.",
+        "error3": "NPC Generator (GPT) | Error creating the NPC! Try again.",
         "wait": "NPC Generator (GPT) | Please wait. A request is already being processed."
     },
 
     "npc-generator-gpt.query": {
-        "pre": "Create an NPC",
-        "post": "for D&D 5e. Structure:",
+        "pre": "Create an NPC {userQuery} for D&D 5e. Structure:",
         "name": "Name",
         "race": "Race",
         "class": "Class",
