@@ -2,13 +2,13 @@
     "name": "(String) {{localize "npc-generator-gpt.query.name"}}",
     "race": "(String) {{localize "npc-generator-gpt.query.race"}}",
     "class": "(String) {{localize "npc-generator-gpt.query.class"}}",
-    "size": "[tiny, sm, med, lg, huge, grg] {{localize "npc-generator-gpt.query.size"}}",
+    "size": "(String) {{localize "npc-generator-gpt.query.size"}} [tiny, sm, med, lg, huge, grg]",
     "alignment": "(String) {{localize "npc-generator-gpt.query.alignment"}}",
     "background": "(String) {{localize "npc-generator-gpt.query.background"}}",
     "appearance": "(String) {{localize "npc-generator-gpt.query.appearance"}}",
     "roleplaying": "(String) {{localize "npc-generator-gpt.query.roleplaying"}}",
-    "equip": "(String) {{localize "npc-generator-gpt.query.equip"}}. Structure: <ul><li>{item_1}</li><li>{item_2}</li></ul>",
-    "spells": "(String) {{localize "npc-generator-gpt.query.spells"}}. Structure: <ul><li>{spell_name_1}</li><li>{spell_name_2}</li></ul>",
+    "equip": "(String) {{localize "npc-generator-gpt.query.equip"}}. Format: <ul><li>{item_1}</li><li>{item_2}</li></ul>",
+    "spells": "(String) {{localize "npc-generator-gpt.query.spells"}}. Format: <ul><li>{spell_name_1}</li><li>{spell_name_2}</li></ul>",
     "stats": {
         "hp": "(Integer) {{localize "npc-generator-gpt.query.hp"}}",
         "cr": "(Float/Integer) {{localize "npc-generator-gpt.query.cr"}}",
@@ -21,7 +21,7 @@
             "wis": "(Integer: 1-20) {{localize "npc-generator-gpt.query.wis"}}",
             "cha": "(Integer: 1-20) {{localize "npc-generator-gpt.query.cha"}}",
         }
-        "prof": "(EXACTLY 2) {{localize "npc-generator-gpt.query.prof"}} [str, dex, con, int, wis, cha]. Structure: prof: {(attribute abbreviation): (Integer: 0-1)}",
-        "skills": "(RANGE 5-6) {{localize "npc-generator-gpt.query.skills"}} [acr, ani, arc, ath, dec, his, ins, inv, itm, med, nat, per, prc, prf, rel, slt, ste, sur]. Structure: skills: {(skill abbreviation): (Integer: 0-1)}"
+        "prof": "(EXACTLY 2) {{localize "npc-generator-gpt.query.prof"}} [str, dex, con, int, wis, cha]. Format: prof: {(ability abbreviation): (Integer: 0-1)}",
+        "skills": "(FROM 5 TO 6) {{localize "npc-generator-gpt.query.skills"}} [acr, ani, arc, ath, dec, his, ins, inv, itm, med, nat, per, prc, prf, rel, slt, ste, sur]. Format: skills: {(skill abbreviation): (Integer: 0-1)}"
     }
 }
