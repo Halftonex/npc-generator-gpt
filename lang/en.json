@@ -9,8 +9,8 @@
             "hint": "When enabled, the metric system will be used for the movement measurement of the generated character, rather than the imperial system."
         },  
         "apiKey": {
-            "name": "Chiave API",
-            "hint": "https://platform.openai.com/account/api-keys"
+            "name": "API Key",
+            "hint": "Your private OpenAI API key. [https://platform.openai.com/account/api-keys]"
         },      
         "temperature": {
             "name": "Temperature",
