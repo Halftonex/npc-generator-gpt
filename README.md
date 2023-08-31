@@ -15,7 +15,7 @@ To install, follow these instructions:
 1. Click Install and wait for installation to complete.
 
 ## Limitations
-Since this module uses a free API endpoint, some requests might be rejected due to high demand, just wait a bit and try again. As an alternative, you can use your private API key to communicate directly with OpenAI's API.
+Since this module uses a free API endpoint, some requests might be rejected due to high demand (or it could be even offline), just wait a bit and try again. As an alternative, you can use your private API key to communicate directly with OpenAI's API.
 
 ## Usage
 After installing and enabling the module, you will find a new button on top of the Actors tab.
