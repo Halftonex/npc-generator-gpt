@@ -7,7 +7,11 @@
         "movementUnits": {
             "name": "Use Metric System",
             "hint": "When enabled, the metric system will be used for the movement measurement of the generated character, rather than the imperial system."
-        },        
+        },  
+        "apiKey": {
+            "name": "Chiave API",
+            "hint": "https://platform.openai.com/account/api-keys"
+        },      
         "temperature": {
             "name": "Temperature",
             "hint": "This parameter affects the \"creativity\" of the model's responses. Higher values (close to 1) make the responses more random, while lower values (close to 0) make them more deterministic and focused. A high value might lead to greater variety in responses, but could also produce less predictable output."
@@ -77,7 +81,7 @@
 
     "npc-generator-gpt.status": {
         "done": "NPC Generator (GPT) | NPC '{npcName}' Generation Completed!",
-        "error": "NPC Generator (GPT) | Request Denied! Wait a few seconds and try again.",
+        "error": "NPC Generator (GPT) | Request Denied! Wait a few seconds and try again. (See console (F12) for more details)",
         "error2": "NPC Generator (GPT) | Error processing ChatGPT's response! Try again.",
         "error3": "NPC Generator (GPT) | Error creating the NPC! Try again.",
         "wait": "NPC Generator (GPT) | Please wait. A request is already being processed."
