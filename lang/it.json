@@ -10,7 +10,7 @@
         },
         "apiKey": {
             "name": "Chiave API",
-            "hint": "https://platform.openai.com/account/api-keys"
+            "hint": "La tua chiave API privata di OpenAI. [https://platform.openai.com/account/api-keys]"
         },
         "temperature": {
             "name": "Temperatura",
