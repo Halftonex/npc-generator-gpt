@@ -4,7 +4,10 @@ const TEMPLATE_PATH = `modules/${MODULE_ID}/templates`;
 const TEMPLATE_DIALOG = `${TEMPLATE_PATH}/dialog.hbs`;
 const TEMPLATE_QUERY = `${TEMPLATE_PATH}/query.hbs`;
 const TEMPLATE_SHEET = `${TEMPLATE_PATH}/sheet.hbs`;
-const API_URL = "https://free.churchless.tech/v1/chat/completions";
+const API_URL = {
+    OPENAI: "https://api.openai.com/v1/chat/completions",
+    BETTER: "https://free.churchless.tech/v1/chat/completions"
+}
 const MODEL_NAME = "gpt-3.5-turbo";
 const HEADERS = {
     'Accept': 'application/json',
@@ -57,17 +60,19 @@ class NPCGeneratorGPT extends Application {
 
         const content = await this._initQuery();
         const requestConfig = this._getRequestConfig(content);
+        const apiURL = (game.settings.get(MODULE_ID, "apiKey")) ? API_URL.OPENAI : API_URL.BETTER;
         
         this.isRequesting = true;
         console.log(`${LOG_PREFIX} Sending Request`);
 
         try {
-            const response = await fetch(API_URL, requestConfig);
+            const response = await fetch(apiURL, requestConfig);
             const responseData = await response.json();
 
             if (!response.ok) {
+                const errorMsg = (typeof responseData.error.message === 'string') ? responseData.error.message : responseData.error.message.message;
                 ui.notifications.error(game.i18n.localize("npc-generator-gpt.status.error"));
-                throw new Error(response.status);
+                throw new Error(`${response.status} | Message: ${errorMsg}`);
             }
 
             this._onCreateNPC(responseData);
@@ -95,7 +100,7 @@ class NPCGeneratorGPT extends Application {
                 "frequency_penalty": game.settings.get(MODULE_ID, "freq_penality"),
                 "presence_penalty": game.settings.get(MODULE_ID, "pres_penality")
             }),
-            headers: HEADERS
+            headers: {...HEADERS, 'Authorization': `Bearer ${game.settings.get(MODULE_ID, "apiKey")}`}
         };
     }
 
