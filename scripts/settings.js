@@ -26,6 +26,22 @@ class settingsGeneratorGPT {
 			default: false,
 			type: Boolean
 		});
+		game.settings.register(this.moduleID, "apiKey", {
+			name: game.i18n.localize("npc-generator-gpt.settings.apiKey.name"),
+			hint: game.i18n.localize("npc-generator-gpt.settings.apiKey.hint"),
+			scope: "world",
+			config: true,
+			default: '',
+			type: String
+		});
+		game.settings.register(this.moduleID, "movementUnits", {
+			name: game.i18n.localize("npc-generator-gpt.settings.movementUnits.name"),
+			hint: game.i18n.localize("npc-generator-gpt.settings.movementUnits.hint"),
+			scope: "world",
+			config: true,
+			default: false,
+			type: Boolean
+		});
 		game.settings.register(this.moduleID, "temperature", {
 			name: game.i18n.localize("npc-generator-gpt.settings.temperature.name"),
 			hint: game.i18n.localize("npc-generator-gpt.settings.temperature.hint"),
