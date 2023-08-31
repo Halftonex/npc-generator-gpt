@@ -8,6 +8,10 @@
             "name": "Usa Sistema Metrico",
             "hint": "Se attivato, usa il sistema metrico invece che quello imperiale come sistema di misura per il movimento del personaggio generato."
         },
+        "apiKey": {
+            "name": "Chiave API",
+            "hint": "https://platform.openai.com/account/api-keys"
+        },
         "temperature": {
             "name": "Temperatura",
             "hint": "Questo parametro influisce sulla \"creatività\" delle risposte del modello. Valori elevati (vicini a 1) rendono le risposte più casuali, mentre valori bassi (vicini a 0) le rendono più deterministe e focalizzate. Un valore alto potrebbe portare a una varietà maggiore nelle risposte, ma potrebbe anche produrre output meno prevedibili."
@@ -77,7 +81,7 @@
 
     "npc-generator-gpt.status": {
         "done": "NPC Generator (GPT) | Generazione NPC '{npcName}' Completata!",
-        "error": "NPC Generator (GPT) | Richiesta Rifiutata! Attendi qualche secondo e riprova.",
+        "error": "NPC Generator (GPT) | Richiesta Rifiutata! Attendi qualche secondo e riprova. (Consulta la console (F12) per maggiori dettagli)",
         "error2": "NPC Generator (GPT) | Errore nell'elaborazione della risposta di ChatGPT! Riprovare.",
         "error3": "NPC Generator (GPT) | Errore nella creazione del NPC! Riprovare.",
         "wait": "NPC Generator (GPT) | Per favore, attendi. Una richiesta è già in fase di elaborazione."
