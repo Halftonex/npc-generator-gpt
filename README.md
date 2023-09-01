@@ -7,6 +7,7 @@ This Foundry VTT module allows users to generate random NPCs using the [BetterCh
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/Halftonex/npc-generator-gpt?label=Release&color=teal)
 ![GitHub all releases](https://img.shields.io/github/downloads/Halftonex/npc-generator-gpt/total?label=Downloads&color=yellow)
 ![GitHub release (latest by SemVer including pre-releases)](https://img.shields.io/github/downloads-pre/Halftonex/npc-generator-gpt/latest/total?label=Downloads%20Latest&color=green)
+![GitHub](https://img.shields.io/github/license/Halftonex/npc-generator-gpt?logo=creativecommons&logoColor=blue&label=License&color=blue)
 
 ## Setup
 To install, follow these instructions:
