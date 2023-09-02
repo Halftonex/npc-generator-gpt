@@ -13,14 +13,6 @@ const HEADERS = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
 };
-const test = `{
-    "name": "Lucius Martell",
-    "background": "Nato in un piccolo villaggio, Lucius è cresciuto in una famiglia di fabbri. Da ragazzo, è sempre stato affascinato dalle storie di eroi e avventure e ha deciso di diventare un guerriero per proteggere gli innocenti. Si è allenato duramente sotto la guida di un veterano locale prima di lasciare la sua casa per cercare la sua sorte.",
-    "appearance": "Lucius è un uomo di statura media con muscoli ben sviluppati. Ha capelli neri corti e occhi marroni. Indossa un'armatura di maglia e porta sempre con sé il suo spadone, un'eredità di famiglia.",
-    "roleplaying": "Lucius è un individuo serio e determinato, sempre pronto a prendere le redini della situazione. Crede fermamente nel concetto di giustizia e non esiterà a intervenire quando vede degli innocenti in pericolo. Tuttavia, è anche una persona con un buon cuore e sarà sempre pronto a dare una seconda possibilità.",
-    "equip": "<ul><li>Spadone</li><li>Armatura di maglia</li><li>Scudo</li><li>Kit da sopravvivenza</li></ul>",
-    "spells": "<ul><li>–</li></ul>"
-}`;
 
 Hooks.on("renderActorDirectory", async (app, html) => {
     if (game.user.isGM) {
