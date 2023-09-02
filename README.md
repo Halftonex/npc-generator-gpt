@@ -21,20 +21,20 @@ Since this module uses a free API endpoint, some requests might be rejected due 
 ## Usage
 After installing and enabling the module, you will find a new button on top of the Actors tab.
 
-<img src="images/button.png?cache=0">
+<img src="images/button.png">
 
 After pressing the button, a window will open allowing you to select certain parameters.
 
-<img src="images/dialog.png?cache=0"> <img src="images/dialog2.png?cache=0">
+<img src="images/dialog.png"> <img src="images/dialog2.png">
 
 Here's an example of an NPC created with this module.
 
-<img src="images/sheet.png?cache=0">
+<img src="images/sheet.png">
 
-<img src="images/sheet2.png?cache=0">
+<img src="images/sheet2.png">
 
 ## Settings
-<img src="images/settings.png?cache=0">
+<img src="images/settings.png">
 
 ## Report a bug
 For any issues, requests and bug reporting, you can dm me on discord @half.tone or visit the project's Github issue page [here](https://github.com/Halftonex/npc-generator-gpt/issues).
