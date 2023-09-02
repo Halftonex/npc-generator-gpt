@@ -90,26 +90,11 @@
     "npc-generator-gpt.query": {
         "pre": "Crea un NPC {userQuery} per D&D 5 Edizione con valori in italiano. Struttura:",
         "name": "Nome",
-        "race": "Razza",
-        "class": "Classe",
-        "size": "Taglia",
         "background": "Breve biografia",
         "appearance": "Descrizione fisica",
-        "roleplaying": "Consigli per l'interpretazione",
+        "roleplaying": "Consigli interpretazione",
         "equip": "Equipaggiamento",
-        "spells": "Incantesimi",
-        "hp": "Punti ferita",
-        "cr": "Grado di sfida",
-        "movement": "Velocità Movimento",
-        "alignment": "Allineamento (Legale Buono, Caotico Malvagio, etc)",
-        "str": "Forza",
-        "dex": "Destrezza",
-        "con": "Costituzione",
-        "int": "Intelligenza",
-        "wis": "Saggezza",
-        "cha": "Carisma",
-        "prof": "Competenze Caratteristiche",
-        "skills": "Competenze Abilità"
+        "spells": "Incantesimi"
     },
 
     "npc-generator-gpt.sheet": {
