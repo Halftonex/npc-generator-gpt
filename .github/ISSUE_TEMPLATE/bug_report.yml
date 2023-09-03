@@ -46,7 +46,7 @@ body:
         - 11.306
         - 11.307
         - 11.308
-      default: 0
+      default: 9
     validations:
       required: true
   - type: textarea
