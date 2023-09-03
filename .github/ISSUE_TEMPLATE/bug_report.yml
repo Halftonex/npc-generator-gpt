@@ -17,6 +17,15 @@ body:
       description: A clear and concise description of what the bug is.
     validations:
       required: true
+
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com or discord username
+    validations:
+      required: false
       
   - type: textarea
     id: steps-to-reproduce
@@ -30,6 +39,7 @@ body:
         4. See error
     validations:
       required: true
+      
   - type: textarea
     id: version
     attributes:
@@ -37,9 +47,12 @@ body:
       description: What version of Foundry VTT are you running?
     validations:
       required: true
+      
   - type: textarea
     id: additional-information
     attributes:
       label: Additional Information
       description: |
         Provide any additional information such as logs, screenshots, likes, scenarios in which the bug occurs so that it facilitates resolving the issue.
+    validations:
+      required: false    
