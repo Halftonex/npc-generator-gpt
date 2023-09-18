@@ -7,7 +7,16 @@
         "movementUnits": {
             "name": "Use Metric System",
             "hint": "When enabled, the metric system will be used for the movement measurement of the generated character, rather than the imperial system."
-        },  
+        },
+        "systemSource": "System",
+        "itemsComp": {
+            "name": "Items Compendium",
+            "hint": "The items compendium that will be used to populate the character sheet."
+        },
+        "spellsComp": {
+            "name": "Spells Compendium",
+            "hint": "The spells compendium that will be used to populate the character sheet."
+        },
         "apiKey": {
             "name": "API Key",
             "hint": "Your private OpenAI API key. [https://platform.openai.com/account/api-keys]"
@@ -32,59 +41,120 @@
 
     "npc-generator-gpt.button": "Generate NPC",
 
-    "npc-generator-gpt.dialog.title": "NPC Generator (GPT) - Preferences",
-    "npc-generator-gpt.dialog.button": "Create NPC",
-    "npc-generator-gpt.dialog.buttonPending": "Connecting...",
-    "npc-generator-gpt.dialog.random": "Random",
+    "npc-generator-gpt.dialog": {
+        "title": "NGG - Preferences",
+        "button": "Create NPC",
+        "buttonPending": "Connecting...",
+        "random": "Random",
 
-    "npc-generator-gpt.dialog.gender": "Gender",
-    "npc-generator-gpt.dialog.male": "Male",
-    "npc-generator-gpt.dialog.female": "Female",
+        "type": {
+            "label": "Type",
+            "commoner": "Commoner",
+            "npc": "NPC",
+            "monster": "Monster"
+        },
 
-    "npc-generator-gpt.dialog.race": "Race",
-    "npc-generator-gpt.dialog.dragonborn": "Dragonborn",
-    "npc-generator-gpt.dialog.dwarf": "Dwarf",
-    "npc-generator-gpt.dialog.elf": "Elf",
-    "npc-generator-gpt.dialog.gnome": "Gnome",
-    "npc-generator-gpt.dialog.halfelf": "Half-Elf",
-    "npc-generator-gpt.dialog.halfling": "Halfling",
-    "npc-generator-gpt.dialog.halforc": "Half-Orc",
-    "npc-generator-gpt.dialog.human": "Human",
-    "npc-generator-gpt.dialog.tiefling": "Tiefling",
+        "gender": {
+            "label": "Gender",
+            "male": "Male",
+            "female": "Female"
+        },
 
-    "npc-generator-gpt.dialog.class": "Class",
-    "npc-generator-gpt.dialog.barbarian": "Barbarian",
-    "npc-generator-gpt.dialog.bard": "Bard",
-    "npc-generator-gpt.dialog.cleric": "Cleric",
-    "npc-generator-gpt.dialog.druid": "Druid",
-    "npc-generator-gpt.dialog.fighter": "Fighter",
-    "npc-generator-gpt.dialog.monk": "Monk",
-    "npc-generator-gpt.dialog.paladin": "Paladin",
-    "npc-generator-gpt.dialog.ranger": "Ranger",
-    "npc-generator-gpt.dialog.rogue": "Rogue",
-    "npc-generator-gpt.dialog.sorcerer": "Sorcerer",
-    "npc-generator-gpt.dialog.warlock": "Warlock",
-    "npc-generator-gpt.dialog.wizard": "Wizard",
+        "race": {
+            "label": "Race",
+            "dragonborn": "Dragonborn",
+            "dwarf": {
+                "common": "Dwarf",
+                "hill": "Hill Dwarf",
+                "mountain": "Mountain Dwarf"
+            },
+            "elf": {
+                "common": "Elf",
+                "high": "High Elf",
+                "wood": "Wood Elf",
+                "drow": "Dark Elf"
+            },
+            "gnome": {
+                "common":"Gnome",
+                "forest": "Forest Gnome",
+                "rock": "Rock Gnome"
+            },
+            "halfelf": "Half-Elf",
+            "halfling": {
+                "common": "Halfling",
+                "lightfoot": "Lightfoot Halfling",
+                "stout": "Stout Halfling"
+            },
+            "halforc": "Half-Orc",
+            "human": "Human",
+            "tiefling": "Tiefling"
+        },
 
-    "npc-generator-gpt.dialog.cr": "CR",
+        "subtype": {
+            "class": "Class",
+            "job": "Job",
+            "subrace": "Subrace"
+        },
 
-    "npc-generator-gpt.dialog.alignment": "Alignment",
-    "npc-generator-gpt.dialog.lg": "Lawful Good",
-    "npc-generator-gpt.dialog.ng": "Neutral Good",
-    "npc-generator-gpt.dialog.cg": "Chaotic Good",
-    "npc-generator-gpt.dialog.ln": "Lawful Neutral",
-    "npc-generator-gpt.dialog.n": "Neutral",
-    "npc-generator-gpt.dialog.cn": "Chaotic Neutral",
-    "npc-generator-gpt.dialog.le": "Lawful Evil",
-    "npc-generator-gpt.dialog.ne": "Neutral Evil",
-    "npc-generator-gpt.dialog.ce": "Chaotic Evil",
+        "commoner": {
+            "alchemist": "Alchemist",
+            "baker": "Baker",
+            "barkeep": "Barkeep",
+            "blacksmith": "Blacksmith",
+            "butcher": "Butcher",
+            "carpenter": "Carpenter",
+            "cobbler": "Cobbler",
+            "farmer": "Farmer",
+            "fisherman": "Fisherman",
+            "guard": "Guard",
+            "healer": "Healer",
+            "hermit": "Hermit",
+            "hunter": "Hunter",
+            "innkeeper": "Innkeeper",
+            "merchant": "Merchant",
+            "messenger": "Messenger",
+            "miner": "Miner",
+            "scribe": "Scribe",
+            "tailor": "Tailor"
+        },
+
+        "npc": {
+            "barbarian": "Barbarian",
+            "bard": "Bard",
+            "cleric": "Cleric",
+            "druid": "Druid",
+            "fighter": "Fighter",
+            "monk": "Monk",
+            "paladin": "Paladin",
+            "ranger": "Ranger",
+            "rogue": "Rogue",
+            "sorcerer": "Sorcerer",
+            "warlock": "Warlock",
+            "wizard": "Wizard"
+        },
+
+        "cr": "CR",
+
+        "alignment": {
+            "label": "Alignment",
+            "lg": "Lawful Good",
+            "ng": "Neutral Good",
+            "cg": "Chaotic Good",
+            "ln": "Lawful Neutral",
+            "n": "Neutral",
+            "cn": "Chaotic Neutral",
+            "le": "Lawful Evil",
+            "ne": "Neutral Evil",
+            "ce": "Chaotic Evil"
+        }
+    },
 
     "npc-generator-gpt.status": {
-        "done": "NPC Generator (GPT) | NPC '{npcName}' Generation Completed!",
-        "error": "NPC Generator (GPT) | Request Denied! Wait a few seconds and try again. (See console (F12) for more details)",
-        "error2": "NPC Generator (GPT) | Error processing ChatGPT's response! Try again.",
-        "error3": "NPC Generator (GPT) | Error creating the NPC! Try again.",
-        "wait": "NPC Generator (GPT) | Please wait. A request is already being processed."
+        "done": "NPC '{npcName}' Generation Completed!",
+        "error": "Request Denied! Wait a few seconds and try again. (See console (F12) for more details)",
+        "error2": "Error processing ChatGPT's response! Try again.",
+        "error3": "Error creating the NPC! Try again.",
+        "wait": "Please wait. A request is already being processed."
     },
 
     "npc-generator-gpt.query": {
@@ -93,19 +163,20 @@
         "background": "Short biography",
         "appearance": "Appearance",
         "roleplaying": "Roleplaying tips",
+        "readaloud": "Evocative description that the GM will read to the players",
         "equip": "Equipment",
         "spells": "Spells"
     },
 
     "npc-generator-gpt.sheet": {
-        "source": "NPC Generator (GPT)",
         "appearance": "Appearance",
         "background": "Background",
         "alignment": "Alignment",
-        "class": "Class",
+        "class": "Class/Job",
         "unknown": "Unknown",
-        "roleplaying": "Roleplaying Tips",
+        "roleplaying": "Roleplaying",
+        "readaloud": "Read Aloud to Players",
         "equip": "Equipment",
         "spells": "Spells"
-    } 
+    }
 }
