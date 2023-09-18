@@ -1,5 +1,5 @@
 {
-    "npc-generator-gpt.settings" : {
+    "npc-generator-gpt.settings": {
         "hideAlignment": {
             "name": "Nascondi Allineamento",
             "hint": "Sostituisce l'allineamento con \"Sconosciuto\" nel caso in cui lo si volesse nascondere ai giocatori. L'allineamento verrà comunque importato nella sezione segreta all'interno della \"Biografia\"."
@@ -7,6 +7,15 @@
         "movementUnits": {
             "name": "Usa Sistema Metrico",
             "hint": "Se attivato, usa il sistema metrico invece che quello imperiale come sistema di misura per il movimento del personaggio generato."
+        },
+        "systemSource": "Sistema",
+        "itemsComp": {
+            "name": "Compendio Oggetti",
+            "hint": "Il compendio degli oggetti che verrà utilizzato per popolare la scheda del personaggio."
+        },
+        "spellsComp": {
+            "name": "Compendio Incantesimi",
+            "hint": "Il compendio degli incantesimi che verrà utilizzato per popolare la scheda del personaggio."
         },
         "apiKey": {
             "name": "Chiave API",
@@ -32,59 +41,120 @@
 
     "npc-generator-gpt.button": "Genera NPC",
 
-    "npc-generator-gpt.dialog.title": "Creazione NPC",
-    "npc-generator-gpt.dialog.button": "Crea NPC",
-    "npc-generator-gpt.dialog.buttonPending": "Connessione...",
-    "npc-generator-gpt.dialog.random": "Casuale",
+    "npc-generator-gpt.dialog": {
+        "title": "NGG - Preferenze",
+        "button": "Crea NPC",
+        "buttonPending": "Connessione...",
+        "random": "Casuale",
 
-    "npc-generator-gpt.dialog.gender": "Sesso",
-    "npc-generator-gpt.dialog.male": "Maschio",
-    "npc-generator-gpt.dialog.female": "Femmina",
+        "type": {
+            "label": "Tipologia",
+            "commoner": "Plebeo",
+            "npc": "NPC",
+            "monster": "Mostro"
+        },
 
-    "npc-generator-gpt.dialog.race": "Razza",
-    "npc-generator-gpt.dialog.dragonborn": "Dragonide",
-    "npc-generator-gpt.dialog.dwarf": "Nano",
-    "npc-generator-gpt.dialog.elf": "Elfo",
-    "npc-generator-gpt.dialog.gnome": "Gnomo",
-    "npc-generator-gpt.dialog.halfelf": "Mezzelfo",
-    "npc-generator-gpt.dialog.halfling": "Halfling",
-    "npc-generator-gpt.dialog.halforc": "Mezzorco",
-    "npc-generator-gpt.dialog.human": "Umano",
-    "npc-generator-gpt.dialog.tiefling": "Tiefling",
+        "gender": {
+            "label": "Sesso",
+            "male": "Maschio",
+            "female": "Femmina"
+        },
 
-    "npc-generator-gpt.dialog.class": "Classe",
-    "npc-generator-gpt.dialog.barbarian": "Barbaro",
-    "npc-generator-gpt.dialog.bard": "Bardo",
-    "npc-generator-gpt.dialog.cleric": "Chierico",
-    "npc-generator-gpt.dialog.druid": "Druido",
-    "npc-generator-gpt.dialog.fighter": "Guerriero",
-    "npc-generator-gpt.dialog.monk": "Monaco",
-    "npc-generator-gpt.dialog.paladin": "Paladino",
-    "npc-generator-gpt.dialog.ranger": "Ranger",
-    "npc-generator-gpt.dialog.rogue": "Ladro",
-    "npc-generator-gpt.dialog.sorcerer": "Stregone",
-    "npc-generator-gpt.dialog.warlock": "Warlock",
-    "npc-generator-gpt.dialog.wizard": "Mago",
+        "race": {
+            "label": "Razza",
+            "dragonborn": "Dragonide",
+            "dwarf": {
+                "common": "Nano",
+                "hill": "Nano delle Colline",
+                "mountain": "Nano delle Montagne"
+            },
+            "elf": {
+                "common": "Elfo",
+                "high": "Elfo Alto",
+                "wood": "Elfo dei Boschi",
+                "drow": "Elfo Oscuro"
+            },
+            "gnome": {
+                "common":"Gnomo",
+                "forest": "Gnomo delle Foreste",
+                "rock": "Gnomo delle Rocce"
+            },
+            "halfelf": "Mezzelfo",
+            "halfling": {
+                "common": "Halfling",
+                "lightfoot": "Halfling Piedelesto",
+                "stout": "Halfling Tozzo"
+            },
+            "halforc": "Mezzorco",
+            "human": "Umano",
+            "tiefling": "Tiefling"
+        },
 
-    "npc-generator-gpt.dialog.cr": "CR",
+        "subtype": {
+            "class": "Classe",
+            "job": "Lavoro",
+            "subrace": "Sottorazza"
+        },
 
-    "npc-generator-gpt.dialog.alignment": "Allineamento",
-    "npc-generator-gpt.dialog.lg": "Legale Buono",
-    "npc-generator-gpt.dialog.ng": "Neutrale Buono",
-    "npc-generator-gpt.dialog.cg": "Caotico Buono",
-    "npc-generator-gpt.dialog.ln": "Legale Neutrale",
-    "npc-generator-gpt.dialog.n": "Neutrale Puro",
-    "npc-generator-gpt.dialog.cn": "Caotico Neutrale",
-    "npc-generator-gpt.dialog.le": "Legale Malvagio",
-    "npc-generator-gpt.dialog.ne": "Neutrale Malvagio",
-    "npc-generator-gpt.dialog.ce": "Caotico Malvagio",
+        "commoner": {
+            "alchemist": "Alchimista",
+            "baker": "Fornaio",
+            "barkeep": "Barista",
+            "blacksmith": "Fabbro",
+            "butcher": "Macellaio",
+            "carpenter": "Falegname",
+            "cobbler": "Calzolaio",
+            "farmer": "Contadino",
+            "fisherman": "Pescatore",
+            "guard": "Guardia",
+            "healer": "Curatore",
+            "hermit": "Eremita",
+            "hunter": "Cacciatore",
+            "innkeeper": "Locandiere",
+            "merchant": "Mercante",
+            "messenger": "Messaggero",
+            "miner": "Minatore",
+            "scribe": "Scriba",
+            "tailor": "Sarto"
+        },
+
+        "npc": {
+            "barbarian": "Barbaro",
+            "bard": "Bardo",
+            "cleric": "Chierico",
+            "druid": "Druido",
+            "fighter": "Guerriero",
+            "monk": "Monaco",
+            "paladin": "Paladino",
+            "ranger": "Ranger",
+            "rogue": "Ladro",
+            "sorcerer": "Stregone",
+            "warlock": "Warlock",
+            "wizard": "Mago"
+        },
+
+        "cr": "CR",
+
+        "alignment": {
+            "label": "Allineamento",
+            "lg": "Legale Buono",
+            "ng": "Neutrale Buono",
+            "cg": "Caotico Buono",
+            "ln": "Legale Neutrale",
+            "n": "Neutrale Puro",
+            "cn": "Caotico Neutrale",
+            "le": "Legale Malvagio",
+            "ne": "Neutrale Malvagio",
+            "ce": "Caotico Malvagio"
+        }
+    },
 
     "npc-generator-gpt.status": {
-        "done": "NPC Generator (GPT) | Generazione NPC '{npcName}' Completata!",
-        "error": "NPC Generator (GPT) | Richiesta Rifiutata! Attendi qualche secondo e riprova. (Consulta la console (F12) per maggiori dettagli)",
-        "error2": "NPC Generator (GPT) | Errore nell'elaborazione della risposta di ChatGPT! Riprovare.",
-        "error3": "NPC Generator (GPT) | Errore nella creazione del NPC! Riprovare.",
-        "wait": "NPC Generator (GPT) | Per favore, attendi. Una richiesta è già in fase di elaborazione."
+        "done": "Generazione NPC '{npcName}' Completata!",
+        "error": "Richiesta Rifiutata! Attendi qualche secondo e riprova. (Consulta la console (F12) per maggiori dettagli)",
+        "error2": "Errore nell'elaborazione della risposta di ChatGPT! Riprovare.",
+        "error3": "Errore nella creazione del NPC! Riprovare.",
+        "wait": "Per favore, attendi. Una richiesta è già in fase di elaborazione."
     },
 
     "npc-generator-gpt.query": {
@@ -93,19 +163,20 @@
         "background": "Breve biografia",
         "appearance": "Descrizione fisica",
         "roleplaying": "Consigli interpretazione",
+        "readaloud": "Descrizione evocativa che il GM leggerà ai giocatori",
         "equip": "Equipaggiamento",
         "spells": "Incantesimi"
     },
 
     "npc-generator-gpt.sheet": {
-        "source": "NPC Generator (GPT)",
         "appearance": "Aspetto",
         "background": "Biografia",
         "alignment": "Allineamento",
-        "class": "Classe",
+        "class": "Classe/Lavoro",
         "unknown": "Sconosciuto",
         "roleplaying": "Interpretazione",
+        "readaloud": "Leggi ai Giocatori",
         "equip": "Equipaggiamento",
         "spells": "Incantesimi"
-    } 
+    }
 }
