@@ -1,16 +1,14 @@
-Hooks.once('init', () => {
-	console.log("NPC Generator (GPT) | Initializing Settings")
-	game.npcGenerator = new settingsGeneratorGPT();
-});
+import { COSTANTS } from "./lib.js";
 
-class settingsGeneratorGPT {
+export class npcGenGPTSettings {
 	constructor() {
-		this.moduleID = "npc-generator-gpt";
 		this._initSettings();
 	}
 
 	_initSettings() {
-		game.settings.register(this.moduleID, "hideAlignment", {
+		//const compList = this._getCompendiumList();
+
+		game.settings.register(COSTANTS.MODULE_ID, "hideAlignment", {
 			name: game.i18n.localize("npc-generator-gpt.settings.hideAlignment.name"),
 			hint: game.i18n.localize("npc-generator-gpt.settings.hideAlignment.hint"),
 			scope: "world",
@@ -18,7 +16,7 @@ class settingsGeneratorGPT {
 			default: false,
 			type: Boolean
 		});
-		game.settings.register(this.moduleID, "movementUnits", {
+		game.settings.register(COSTANTS.MODULE_ID, "movementUnits", {
 			name: game.i18n.localize("npc-generator-gpt.settings.movementUnits.name"),
 			hint: game.i18n.localize("npc-generator-gpt.settings.movementUnits.hint"),
 			scope: "world",
@@ -26,23 +24,33 @@ class settingsGeneratorGPT {
 			default: false,
 			type: Boolean
 		});
-		game.settings.register(this.moduleID, "apiKey", {
+		/*game.settings.register(COSTANTS.MODULE_ID, "itemsComp", {
+			name: game.i18n.localize("npc-generator-gpt.settings.itemsComp.name"),
+			hint: game.i18n.localize("npc-generator-gpt.settings.itemsComp.hint"),
+			scope: "world",
+			config: true,
+			default: "dnd5e.items",
+			type: String,
+			choices: compList
+		});
+		game.settings.register(COSTANTS.MODULE_ID, "spellsComp", {
+			name: game.i18n.localize("npc-generator-gpt.settings.spellsComp.name"),
+			hint: game.i18n.localize("npc-generator-gpt.settings.spellsComp.hint"),
+			scope: "world",
+			config: true,
+			default: "dnd5e.spells",
+			type: String,
+			choices: compList
+		});*/
+		game.settings.register(COSTANTS.MODULE_ID, "apiKey", {
 			name: game.i18n.localize("npc-generator-gpt.settings.apiKey.name"),
 			hint: game.i18n.localize("npc-generator-gpt.settings.apiKey.hint"),
-			scope: "world",
+			scope: "client",
 			config: true,
 			default: '',
 			type: String
 		});
-		game.settings.register(this.moduleID, "movementUnits", {
-			name: game.i18n.localize("npc-generator-gpt.settings.movementUnits.name"),
-			hint: game.i18n.localize("npc-generator-gpt.settings.movementUnits.hint"),
-			scope: "world",
-			config: true,
-			default: false,
-			type: Boolean
-		});
-		game.settings.register(this.moduleID, "temperature", {
+		game.settings.register(COSTANTS.MODULE_ID, "temperature", {
 			name: game.i18n.localize("npc-generator-gpt.settings.temperature.name"),
 			hint: game.i18n.localize("npc-generator-gpt.settings.temperature.hint"),
 			scope: "world",
@@ -55,7 +63,7 @@ class settingsGeneratorGPT {
 				step: 0.01,
 			}
 		});
-		game.settings.register(this.moduleID, "top_p", {
+		game.settings.register(COSTANTS.MODULE_ID, "top_p", {
     		name: game.i18n.localize("npc-generator-gpt.settings.top_p.name"),
     		hint: game.i18n.localize("npc-generator-gpt.settings.top_p.hint"),
     		scope: "world",
@@ -68,7 +76,7 @@ class settingsGeneratorGPT {
 				step: 0.01,
 			}
 		});
-		game.settings.register(this.moduleID, "freq_penality", {
+		game.settings.register(COSTANTS.MODULE_ID, "freq_penality", {
     		name: game.i18n.localize("npc-generator-gpt.settings.freq_penality.name"),
     		hint: game.i18n.localize("npc-generator-gpt.settings.freq_penality.hint"),
     		scope: "world",
@@ -81,7 +89,7 @@ class settingsGeneratorGPT {
 				step: 0.01,
 			}
 		});
-		game.settings.register(this.moduleID, "pres_penality", {
+		game.settings.register(COSTANTS.MODULE_ID, "pres_penality", {
     		name: game.i18n.localize("npc-generator-gpt.settings.pres_penality.name"),
     		hint: game.i18n.localize("npc-generator-gpt.settings.pres_penality.hint"),
     		scope: "world",
@@ -95,4 +103,19 @@ class settingsGeneratorGPT {
 			}
 		});
 	}
+
+	/*_getCompendiumList() {
+		const packs = {};
+	
+		game.packs.forEach(comp => {
+			const { packageType, packageName, id, label } = comp.metadata;
+			const source = packageType === 'system'
+				? game.i18n.localize("npc-generator-gpt.settings.systemSource")
+				: game.modules.get(packageName).title;
+			
+			packs[id] = `${label} [${source}]`;
+		});
+	
+		return packs;
+	}	*/
 }
