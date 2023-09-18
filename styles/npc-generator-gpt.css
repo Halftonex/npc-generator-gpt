@@ -1,13 +1,71 @@
-.npc-generator-gpt table { 
-    background: none; 
-    border: none;
+/* Generate NPC */
+#npc-generator-gpt header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-.npc-generator-gpt tr { background: none !important; }
-.npc-generator-gpt select { width: 80%; }
-.npc-generator-gpt button:hover {
-    color: white;
-    font-weight: bold;
+#npc-generator-gpt section {
+    background: #444654;
+    border-radius: 0 0 5px 5px;
+}
+.npcGenGPT {
+    margin-top: 5px;
+    font-family: Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+.npcGenGPT ::-webkit-scrollbar-thumb {
     background: teal;
-    box-shadow: 0 0 7px teal;
+    border-radius: 0px;
+    border-color: rgb(0, 192, 192);
 }
-.npc-generator-gpt button:focus { box-shadow: 0 0 7px teal; }
+.npcGenGPT div {
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+.npcGenGPT label {
+    float: left;
+    width: 45%;
+    height: 100%;
+    color: #fff;
+}
+.npcGenGPT select { 
+    float: right;
+    width: 55%;
+    height: 100%;
+    appearance: button;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid #565869;
+    color: #d1d5db;
+    cursor: pointer;
+}
+.npcGenGPT select:focus { box-shadow: none; }
+.npcGenGPT option {
+    background-color: #343541;
+    margin-bottom: 3px;
+}
+.npcGenGPT button {
+    margin-top: 5px;
+    background-color: #343541;
+    color: #fff;
+    border: 1px solid #565869;
+    transition: background-color 0.2s;
+}
+.npcGenGPT button:hover {
+    background: rgba(0, 128, 128, 0.5);
+    box-shadow: none;
+}
+.npcGenGPT button:focus { box-shadow: none; }
+
+/* Enhance NPC */ 
+.npcGenGPT.dialog {
+    width: 330px !important;
+}
+.npcGenGPT.dialog header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.npcGenGPT.dialog section {
+    /*background: #444654;*/
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #990000;
+}
