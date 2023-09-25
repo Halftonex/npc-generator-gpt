@@ -1,6 +1,7 @@
 name: ✨Feature Request
 description: Request a new feature or enhancement
 labels: ["enhancement"]
+projects: ["Endless Odyssey"]
 title: "[FEAT]: "
 body:
   - type: markdown
