@@ -144,8 +144,6 @@ export class npcGenGPTGenerateNPC extends Application {
             const fakeAlign = (game.settings.get(COSTANTS.MODULE_ID, "hideAlignment")) ? game.i18n.localize("npc-generator-gpt.sheet.unknown") : details.alignment.label;
             const bioContent = await getTemplateStructure(`modules/${COSTANTS.MODULE_ID}/templates/${COSTANTS.TEMPLATE.SHEET}`, this.preferences);
 
-            console.warn(this.preferences);
-
             const npc = await Actor.create({ name: name, type: "npc" });
             await npc.update({
                 system: {
