@@ -6,7 +6,7 @@ export class npcGenGPTSettings {
 	}
 
 	_initSettings() {
-		//const compList = this._getCompendiumList();
+		const compList = this._getCompendiumList();
 
 		game.settings.register(COSTANTS.MODULE_ID, "hideAlignment", {
 			name: game.i18n.localize("npc-generator-gpt.settings.hideAlignment.name"),
@@ -24,7 +24,7 @@ export class npcGenGPTSettings {
 			default: false,
 			type: Boolean
 		});
-		/*game.settings.register(COSTANTS.MODULE_ID, "itemsComp", {
+		game.settings.register(COSTANTS.MODULE_ID, "itemsComp", {
 			name: game.i18n.localize("npc-generator-gpt.settings.itemsComp.name"),
 			hint: game.i18n.localize("npc-generator-gpt.settings.itemsComp.hint"),
 			scope: "world",
@@ -41,7 +41,20 @@ export class npcGenGPTSettings {
 			default: "dnd5e.spells",
 			type: String,
 			choices: compList
-		});*/
+		});
+		game.settings.register(COSTANTS.MODULE_ID, "fuzzyThreshold", {
+			name: game.i18n.localize("npc-generator-gpt.settings.fuzzyThreshold.name"),
+			hint: game.i18n.localize("npc-generator-gpt.settings.fuzzyThreshold.hint"),
+			scope: "world",
+			config: true,
+			default: 0.4,
+			type: Number,
+			range: {
+				min: 0,
+				max: 1,
+				step: 0.1,
+			}
+		});
 		game.settings.register(COSTANTS.MODULE_ID, "apiKey", {
 			name: game.i18n.localize("npc-generator-gpt.settings.apiKey.name"),
 			hint: game.i18n.localize("npc-generator-gpt.settings.apiKey.hint"),
@@ -104,7 +117,7 @@ export class npcGenGPTSettings {
 		});
 	}
 
-	/*_getCompendiumList() {
+	_getCompendiumList() {
 		const packs = {};
 	
 		game.packs.forEach(comp => {
@@ -117,5 +130,5 @@ export class npcGenGPTSettings {
 		});
 	
 		return packs;
-	}	*/
+	}	
 }
