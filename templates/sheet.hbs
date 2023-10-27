@@ -4,7 +4,7 @@
     <h4><strong>{{localize 'npc-generator-gpt.sheet.alignment'}}:</strong></h4>{{details.alignment.label}}<hr>
     <h4><strong>{{localize 'npc-generator-gpt.sheet.background'}}:</strong></h4>{{details.biography.background}}<hr>
     <h4><strong>{{localize 'npc-generator-gpt.sheet.roleplaying'}}:</strong></h4>{{details.biography.roleplaying}}<hr>
-    <h4><strong>{{localize 'npc-generator-gpt.sheet.readaloud'}}:</strong></h4><blockquote style="background-color: cyan">{{details.biography.readaloud}}</blockquote><hr>
-    <h4><strong>{{localize 'npc-generator-gpt.sheet.equip'}}:</strong></h4>{{{items}}}<hr>
-    <h4><strong>{{localize 'npc-generator-gpt.sheet.spells'}}:</strong></h4>{{{spells}}}
+    <h4><strong>{{localize 'npc-generator-gpt.sheet.readaloud'}}:</strong></h4><blockquote style="background-color: cyan">{{details.biography.readaloud}}</blockquote>
+    {{#if items}}<hr><h4><strong>{{localize 'npc-generator-gpt.sheet.equip'}}:</strong></h4><ul>{{#each items}}<li>{{this}}</li>{{/each}}</ul>{{/if}}
+    {{#if spells}}<hr><h4><strong>{{localize 'npc-generator-gpt.sheet.spells'}}:</strong></h4><ul>{{#each spells}}<li>{{this}}</li>{{/each}}</ul>{{/if}}
 </section>
