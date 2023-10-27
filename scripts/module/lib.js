@@ -1,3 +1,5 @@
+import { Fuse } from "../lib/fuse.mjs"
+
 export const COSTANTS = {
     MODULE_ID: "npc-generator-gpt",
     LOG_PREFIX: "NPC Generator (GPT) |",
@@ -7,7 +9,6 @@ export const COSTANTS = {
     },
     TEMPLATE: {
         DIALOG: 'generate.hbs',
-        QUERY: 'query.hbs',
         SHEET: 'sheet.hbs'
     }
 }
@@ -81,7 +82,7 @@ function convertGPTData(content) {
         }
     } else {
         try {
-            return JSON.parse(gptContent); // errori nel parsing controllare gli errori (prob query)
+            return JSON.parse(gptContent);
         } catch (error) {
             ui.notifications.error(errorMsg);
             console.error(gptContent)
@@ -95,6 +96,32 @@ export async function getTemplateStructure(path, data) {
         const template = await renderTemplate(path, data);
         return template
     } catch (error) { console.error(error) }
+}
+
+export function getSettingsPacks() {
+    return {
+        items: game.settings.get(COSTANTS.MODULE_ID, "itemsComp"),
+        spells: game.settings.get(COSTANTS.MODULE_ID, "spellsComp")
+    }
+}
+
+export async function addItemstoNpc(npc, pack, items) {
+    const compendium = game.packs.get(pack);
+    const threshold = game.settings.get(COSTANTS.MODULE_ID, "fuzzyThreshold");
+    const fuse = new Fuse(compendium.index.contents, { keys: ['name', 'originalName'], threshold: threshold });
+    const itemsArray = [];
+
+    for (let item of items) {
+        const itemsRef = fuse.search(item);
+        
+        if (itemsRef.length > 0) {
+            const itemDoc = itemsRef[0].item;
+            const itemObj = await compendium.getDocument(itemDoc._id);
+            itemsArray.push(itemObj);
+        }
+    }
+
+    await npc.createEmbeddedDocuments("Item", itemsArray, {});
 }
 
 export function getRandomInt(min, max) {
@@ -120,7 +147,7 @@ export function rollDice(diceFaces, throws, isArray = false) {
     for (let i = 0; i < throws; i++) {
         results.push(Math.floor(Math.random() * diceFaces) + 1);
     }
-    
+
     if (isArray) {
         return results;
     } else {
