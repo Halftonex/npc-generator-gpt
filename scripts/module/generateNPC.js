@@ -1,7 +1,5 @@
-import { COSTANTS, isRequesting, getTemplateStructure, getRandomInt, getRandomFromPool, roll4d6DropLowest, rollDice, callAI } from "./lib.js";
+import { COSTANTS, isRequesting, getTemplateStructure, getRandomInt, getRandomFromPool, roll4d6DropLowest, rollDice, callAI, addItemstoNpc, getSettingsPacks } from "./lib.js";
 import { getDialogType, getQueryTemplate, raceStats, subTypeStats, skillAbilities, npcAbilities, crTable } from "./dataStructures.js";
-
-//check parsing della risposta di chatgpt, a volte errore
 
 export class npcGenGPTGenerateNPC extends Application {
     constructor() {
@@ -27,7 +25,7 @@ export class npcGenGPTGenerateNPC extends Application {
     changeDialogCategory() {
         const npcType = this.element.find('#type option:selected').val();
         const dialogType = getDialogType();
-    
+
         const npcTypeMap = {
             "commoner": {
                 type: dialogType.commoner,
@@ -38,24 +36,24 @@ export class npcGenGPTGenerateNPC extends Application {
                 label: game.i18n.localize("npc-generator-gpt.dialog.subtype.class"),
             }
         };
-    
-        const generateOptions = (data) => 
+
+        const generateOptions = (data) =>
             Object.entries(data).map(([key, value]) => `<option value="${key}">${value}</option>`).join('');
-    
+
         const { type: subType, label: subTypeLabel } = npcTypeMap[npcType];
-        
+
         const options = generateOptions(subType.subType);
         let cr = generateOptions(subType.cr.value);
-    
+
         if (npcType === 'npc') {
             cr += Array.from({ length: subType.cr.max }, (_, i) => `<option value="${i + 1}">${i + 1}</option>`).join('');
         }
-    
+
         const element = this.element;
         element.find("label[for='subtype']").text(`${subTypeLabel}:`);
         element.find("#subtype").html(options);
         element.find("#cr").html(cr);
-    }    
+    }
 
     async initGeneration() {
         if (isRequesting) {
@@ -72,8 +70,8 @@ export class npcGenGPTGenerateNPC extends Application {
         const responseData = await callAI(content);
 
         button.text(game.i18n.localize("npc-generator-gpt.dialog.button"));
-        
-        if(responseData) {
+
+        if (responseData) {
             this._gptData2preferences(responseData);
             this.createNPC();
         }
@@ -82,37 +80,37 @@ export class npcGenGPTGenerateNPC extends Application {
     _getDialogOption(dialogSelect) {
         const $dialog = $(dialogSelect);
         let $selectedOption = $dialog.find("option:selected");
-    
+
         if ($selectedOption.val() === 'random') {
             const allOptions = $dialog.find("option:not([value='random'])");
             const randomIndex = Math.floor(Math.random() * allOptions.length);
             $selectedOption = allOptions.eq(randomIndex);
         }
-    
+
         return {
             value: $selectedOption.val(),
             label: $selectedOption.text()
         };
-    }  
+    }
 
     _initPreferences() {
         const type = this.element.find('#type').val();
         this.preferences.type = type;
-        
-        this.preferences.details = { 
-            gender: this._getDialogOption('#gender'), 
-            race: this._getDialogOption('#race'), 
+
+        this.preferences.details = {
+            gender: this._getDialogOption('#gender'),
+            race: this._getDialogOption('#race'),
             subtype: this._getDialogOption('#subtype'),
             alignment: this._getDialogOption('#alignment'),
             cr: this._getDialogOption('#cr').value
         };
-        
+
         const { cr, race, subtype } = this.preferences.details;
 
-        if (type === 'commoner') subtype.value = type; 
+        if (type === 'commoner') subtype.value = type;
         this.preferences.currency = this._getNPCCurrency(cr);
         this.preferences.details.type = this._getNPCType(race);
-        this.preferences.attributes = this._getNPCAttributes(cr, race.value);
+        this.preferences.attributes = this._getNPCAttributes(cr, race.value, subtype.value);
         this.preferences.traits = this._getNPCTraits(subtype.value, race.value);
         this.preferences.abilities = this._getNPCAbilities(subtype.value);
         this.preferences.skills = this._getNPCSkills(subtype.value, race.value);
@@ -130,7 +128,7 @@ export class npcGenGPTGenerateNPC extends Application {
         this.preferences.spells = spells;
         this.preferences.items = items;
         this.preferences.details = {
-            ...this.preferences.details, 
+            ...this.preferences.details,
             biography: {
                 appearance: appearance,
                 background: background,
@@ -146,6 +144,8 @@ export class npcGenGPTGenerateNPC extends Application {
             const fakeAlign = (game.settings.get(COSTANTS.MODULE_ID, "hideAlignment")) ? game.i18n.localize("npc-generator-gpt.sheet.unknown") : details.alignment.label;
             const bioContent = await getTemplateStructure(`modules/${COSTANTS.MODULE_ID}/templates/${COSTANTS.TEMPLATE.SHEET}`, this.preferences);
 
+            console.warn(this.preferences);
+
             const npc = await Actor.create({ name: name, type: "npc" });
             await npc.update({
                 system: {
@@ -157,18 +157,24 @@ export class npcGenGPTGenerateNPC extends Application {
                         biography: { value: bioContent },
                         type: details.type
                     },
-                    traits: { size: traits.size, languages: { value: traits.languages } },
+                    traits: { size: traits.size.value, languages: { value: traits.languages } },
                     abilities: abilities,
                     attributes: {
                         hp: { value: attributes.hp, max: attributes.hp },
                         ac: { value: attributes.ac },
                         movement: attributes.movement,
-                        senses: attributes.senses
+                        senses: attributes.senses,
+                        spellcasting: attributes.spellcasting
                     },
                     skills: skills,
                     currency: currency
                 }
             });
+
+            let comp = getSettingsPacks();
+            addItemstoNpc(npc, comp.items, this.preferences.items);
+            addItemstoNpc(npc, comp.spells, this.preferences.spells);
+            
             npc.sheet.render(true);
 
             this.close();
@@ -192,7 +198,7 @@ export class npcGenGPTGenerateNPC extends Application {
         };
     }
 
-    _getNPCAttributes(npc_cr, npc_race) {
+    _getNPCAttributes(npc_cr, npc_race, npc_subtype) {
         const raceData = raceStats[npc_race];
         const info = { ...crTable[npc_cr] };
         const measureUnits = game.settings.get(COSTANTS.MODULE_ID, "movementUnits") ? 'm' : 'ft';
@@ -202,6 +208,7 @@ export class npcGenGPTGenerateNPC extends Application {
 
         info.movement = { ...raceData.movement };
         info.senses = { ...raceData.senses };
+        info.spellcasting = subTypeStats[npc_subtype]?.spellcasting ?? 'int';
 
         if (measureUnits === 'm') {
             const convert = obj => {
@@ -219,48 +226,48 @@ export class npcGenGPTGenerateNPC extends Application {
         const raceLang = raceStats[npc_race]?.lang || {};
         const subtypeLang = subTypeStats[npc_subtype]?.lang || {};
         const combinedLang = { ...raceLang };
-      
+
         let nextIndex = Object.keys(combinedLang).length;
-      
+
         for (const key in subtypeLang) {
-          combinedLang[nextIndex] = subtypeLang[key];
-          nextIndex++;
+            combinedLang[nextIndex] = subtypeLang[key];
+            nextIndex++;
         }
-      
+
         return {
             languages: combinedLang,
             size: raceStats[npc_race].size
         };
-      }
+    }
 
     _getNPCAbilities(npc_subtype) {
         const npcStats = subTypeStats[npc_subtype] || {};
-        const pool = (npc_subtype === 'commoner') 
-            ? getRandomFromPool(npcStats.save?.pool, npcStats.save?.max) 
+        const pool = (npc_subtype === 'commoner')
+            ? getRandomFromPool(npcStats.save?.pool, npcStats.save?.max)
             : npcStats.save || {};
-    
+
         const info = Object.entries(npcAbilities).reduce((acc, [attr, defaultVal]) => {
-            acc[attr] = { 
-                value: roll4d6DropLowest(), 
-                proficient: pool[attr] ?? 0 
+            acc[attr] = {
+                value: roll4d6DropLowest(),
+                proficient: pool[attr] ?? 0
             };
             return acc;
         }, {});
-    
+
         return info;
-    }  
-    
+    }
+
     _getNPCSkills(npc_subtype, npc_race) {
         const { pool: originalPool, max } = subTypeStats[npc_subtype].skills;
-        
+
         let pool;
         if (npc_race === 'elf' || npc_race === 'drow') {
             pool = getRandomFromPool(originalPool.filter(skill => skill !== 'prc'), max);
-            pool.prc = 1; 
+            pool.prc = 1;
         } else {
             pool = getRandomFromPool(originalPool, max);
         }
-    
+
         return Object.entries(pool).reduce((acc, [skill, value]) => {
             acc[skill] = { value, ability: skillAbilities[skill] };
             return acc;
@@ -270,7 +277,7 @@ export class npcGenGPTGenerateNPC extends Application {
     _getNPCCurrency(npc_cr) {
         const mult = (npc_cr < 1) ? 10 : (npc_cr * 100);
         let coins = rollDice(10, mult);
-    
+
         return {
             pp: Math.floor(coins / 1000),
             gp: Math.floor((coins %= 1000) / 100),
