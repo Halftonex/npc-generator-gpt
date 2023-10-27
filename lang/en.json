@@ -17,6 +17,10 @@
             "name": "Spells Compendium",
             "hint": "The spells compendium that will be used to populate the character sheet."
         },
+        "fuzzyThreshold": {
+            "name": "Item and Spell Search Threshold",
+            "hint": "At what point does the match algorithm give up. A threshold of 0.0 requires a perfect match (of both letters and location), a threshold of 1.0 would match anything."
+        },
         "apiKey": {
             "name": "API Key",
             "hint": "Your private OpenAI API key. [https://platform.openai.com/account/api-keys]"
