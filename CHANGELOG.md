@@ -1,5 +1,9 @@
 # NPC Generator (GPT) Changelog
 
+## v1.4.0
+* Automation for adding spells and items to the NPC's character sheet
+* Added spellcasting ability for each class
+
 ## v1.3.0
 * Revamped the UI
 * Added subraces
