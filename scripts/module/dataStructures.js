@@ -71,33 +71,33 @@ export const preferencesTemplate = {
 }
 
 export const raceStats = {
-    dragonborn: { type: "humanoid", movement: { walk: 30 }, size: 'med', senses: { darkvision: 0 }, lang: { 0: "common", 1: "draconic" } },
-    dwarf: { type: "humanoid", movement: { walk: 25 }, size: 'med', senses: { darkvision: 60 }, lang: { 0: "common", 1: "dwarvish" } },
-    elf: { type: "humanoid", movement: { walk: 30 }, size: 'med', senses: { darkvision: 60 }, lang: { 0: "common", 1: "elvish" } },
-    drow: { type: "humanoid", movement: { walk: 30 }, size: 'med', senses: { darkvision: 120 }, lang: { 0: "common", 1: "elvish" } },
-    gnome: { type: "humanoid", movement: { walk: 25 }, size: 'sm', senses: { darkvision: 60 }, lang: { 0: "common", 1: "gnomish" } },
-    halfelf: { type: "humanoid", movement: { walk: 30 }, size: 'med', senses: { darkvision: 60 }, lang: { 0: "common", 1: "elvish" } },
-    halfling: { type: "humanoid", movement: { walk: 25 }, size: 'sm', senses: { darkvision: 0 }, lang: { 0: "common", 1: "halfling" } },
-    halfling: { type: "humanoid", movement: { walk: 25 }, size: 'sm', senses: { darkvision: 0 }, lang: { 0: "common", 1: "halfling" } },
-    halforc: { type: "humanoid", movement: { walk: 30 }, size: 'med', senses: { darkvision: 60 }, lang: { 0: "common", 1: "orc" } },
-    human: { type: "humanoid", movement: { walk: 30 }, size: 'med', senses: { darkvision: 0 }, lang: { 0: "common" } },
-    tiefling: { type: "humanoid", movement: { walk: 30 }, size: 'med', senses: { darkvision: 60 }, lang: { 0: "common", 1: "infernal" } }
+    dragonborn: { type: "humanoid", movement: { walk: 30 }, size: { value: 'med', label: 'Medium' }, senses: { darkvision: 0 }, lang: { 0: "common", 1: "draconic" } },
+    dwarf: { type: "humanoid", movement: { walk: 25 }, size: { value: 'med', label: 'Medium' }, senses: { darkvision: 60 }, lang: { 0: "common", 1: "dwarvish" } },
+    elf: { type: "humanoid", movement: { walk: 30 }, size: { value: 'med', label: 'Medium' }, senses: { darkvision: 60 }, lang: { 0: "common", 1: "elvish" } },
+    drow: { type: "humanoid", movement: { walk: 30 }, size: { value: 'med', label: 'Medium' }, senses: { darkvision: 120 }, lang: { 0: "common", 1: "elvish" } },
+    gnome: { type: "humanoid", movement: { walk: 25 }, size: { value: 'sm', label: 'Small' }, senses: { darkvision: 60 }, lang: { 0: "common", 1: "gnomish" } },
+    halfelf: { type: "humanoid", movement: { walk: 30 }, size: { value: 'med', label: 'Medium' }, senses: { darkvision: 60 }, lang: { 0: "common", 1: "elvish" } },
+    halfling: { type: "humanoid", movement: { walk: 25 }, size: { value: 'sm', label: 'Small' }, senses: { darkvision: 0 }, lang: { 0: "common", 1: "halfling" } },
+    halfling: { type: "humanoid", movement: { walk: 25 }, size: { value: 'sm', label: 'Small' }, senses: { darkvision: 0 }, lang: { 0: "common", 1: "halfling" } },
+    halforc: { type: "humanoid", movement: { walk: 30 }, size: { value: 'med', label: 'Medium' }, senses: { darkvision: 60 }, lang: { 0: "common", 1: "orc" } },
+    human: { type: "humanoid", movement: { walk: 30 }, size: { value: 'med', label: 'Medium' }, senses: { darkvision: 0 }, lang: { 0: "common" } },
+    tiefling: { type: "humanoid", movement: { walk: 30 }, size: { value: 'med', label: 'Medium' }, senses: { darkvision: 60 }, lang: { 0: "common", 1: "infernal" } }
 };
 
 export const subTypeStats = {
     commoner: { save: { max: 2, pool: ['str', 'dex', 'int', 'wis', 'con', 'cha'] }, skills: { max: 2, pool: ['acr', 'ani', 'arc', 'ath', 'dec', 'his', 'ins', 'inv', 'itm', 'med', 'nat', 'per', 'prc', 'prf', 'rel', 'slt', 'ste', 'sur'] } },  
     barbarian: { save: { str: 1, con: 1 }, skills: { max: 2, pool: ['ani', 'ath', 'itm', 'nat', 'prc', 'sur'] } },
-    bard: { save: { dex: 1, cha: 1 }, skills: { max: 3, pool: ['acr', 'ani', 'arc', 'ath', 'dec', 'his', 'ins', 'inv', 'itm', 'med', 'nat', 'per', 'prc', 'prf', 'rel', 'slt', 'ste', 'sur'] } },
-    cleric: { save: { wis: 1, cha: 1 }, skills: { max: 2, pool: ['his', 'ins', 'med', 'per', 'rel'] } },
-    druid: { save: { int: 1, wis: 1 }, skills: { max: 2, pool: ['ani', 'arc', 'ins', 'med', 'nat', 'prc', 'rel', 'sur'] } },
+    bard: { save: { dex: 1, cha: 1 }, spellcasting: 'cha', skills: { max: 3, pool: ['acr', 'ani', 'arc', 'ath', 'dec', 'his', 'ins', 'inv', 'itm', 'med', 'nat', 'per', 'prc', 'prf', 'rel', 'slt', 'ste', 'sur'] } },
+    cleric: { save: { wis: 1, cha: 1 }, spellcasting: 'wis', skills: { max: 2, pool: ['his', 'ins', 'med', 'per', 'rel'] } },
+    druid: { save: { int: 1, wis: 1 }, spellcasting: 'wis', skills: { max: 2, pool: ['ani', 'arc', 'ins', 'med', 'nat', 'prc', 'rel', 'sur'] } },
     fighter: { save: { str: 1, con: 1 }, skills: { max: 2, pool: ['acr', 'ani', 'ath', 'itm', 'ins', 'prc', 'sur', 'his'] } },
-    monk: { save: { str: 1, dex: 1 }, skills: { max: 2, pool: ['acr', 'ath', 'ste', 'ins', 'rel', 'his'] } },
-    paladin: { save: { wis: 1, cha: 1 }, skills: { max: 2, pool: ['ath', 'itm', 'ins', 'med', 'per', 'rel'] } },
-    ranger: { save: { str: 1, dex: 1 }, skills: { max: 3, pool: ['ani', 'ath', 'ste', 'inv', 'ins', 'nat', 'prc', 'sur'] } },
+    monk: { save: { str: 1, dex: 1 }, spellcasting: 'wis', skills: { max: 2, pool: ['acr', 'ath', 'ste', 'ins', 'rel', 'his'] } },
+    paladin: { save: { wis: 1, cha: 1 }, spellcasting: 'cha', skills: { max: 2, pool: ['ath', 'itm', 'ins', 'med', 'per', 'rel'] } },
+    ranger: { save: { str: 1, dex: 1 }, spellcasting: 'wis', skills: { max: 3, pool: ['ani', 'ath', 'ste', 'inv', 'ins', 'nat', 'prc', 'sur'] } },
     rogue: { save: { dex: 1, int: 1 }, lang: { 0: "cant" }, skills: { max: 4, pool: ['acr', 'ath', 'ste', 'inv', 'dec', 'itm', 'prf', 'ins', 'prc', 'per', 'slt'] } },
-    sorcerer: { save: { con: 1, cha: 1 }, skills: { max: 2, pool: ['arc', 'dec', 'itm', 'ins', 'per', 'rel'] } },
-    warlock: { save: { wis: 1, cha: 1 }, skills: { max: 2, pool: ['arc', 'inv', 'dec', 'itm', 'nat', 'rel', 'his'] } },
-    wizard: { save: { int: 1, wis: 1 }, skills: { max: 2, pool: ['arc', 'inv', 'ins', 'med', 'rel', 'his'] } }
+    sorcerer: { save: { con: 1, cha: 1 }, spellcasting: 'cha', skills: { max: 2, pool: ['arc', 'dec', 'itm', 'ins', 'per', 'rel'] } },
+    warlock: { save: { wis: 1, cha: 1 }, spellcasting: 'cha', skills: { max: 2, pool: ['arc', 'inv', 'dec', 'itm', 'nat', 'rel', 'his'] } },
+    wizard: { save: { int: 1, wis: 1 }, spellcasting: 'int', skills: { max: 2, pool: ['arc', 'inv', 'ins', 'med', 'rel', 'his'] } }
 };
 
 export const skillAbilities = {
@@ -174,7 +174,7 @@ export function getQueryTemplate(options) {
         "appearance": "${game.i18n.localize("npc-generator-gpt.query.appearance")}",
         "roleplaying": "${game.i18n.localize("npc-generator-gpt.query.roleplaying")}",
         "readaloud": "${game.i18n.localize("npc-generator-gpt.query.readaloud")}",
-        "items": "${game.i18n.localize("npc-generator-gpt.query.equip")} (html list)",
-        "spells": "${game.i18n.localize("npc-generator-gpt.query.spells")} (html list)",
+        "items": "${game.i18n.localize("npc-generator-gpt.query.equip")} (array)",
+        "spells": "${game.i18n.localize("npc-generator-gpt.query.spells")} (array)",
     }`
 }
