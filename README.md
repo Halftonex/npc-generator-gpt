@@ -31,9 +31,13 @@ After pressing the button, a window will open allowing you to select certain par
 
 Here's an example of an NPC created with this module.
 
-<img src="images/sheet.png">
+<img src="images/sheet1.png">
 
 <img src="images/sheet2.png">
+
+<img src="images/sheet3.png">
+
+<img src="images/sheet4.png">
 
 ## Settings
 <img src="images/settings.png">
