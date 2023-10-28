@@ -119,16 +119,27 @@ export class npcGenGPTSettings {
 
 	_getCompendiumList() {
 		const packs = {};
-	
 		game.packs.forEach(comp => {
 			const { packageType, packageName, id, label } = comp.metadata;
-			const source = packageType === 'system'
-				? game.i18n.localize("npc-generator-gpt.settings.systemSource")
-				: game.modules.get(packageName).title;
+			let source = '';
 			
+			switch (packageType) {
+				case 'system':
+					source = game.i18n.localize("npc-generator-gpt.settings.systemSource");
+					break;
+				case 'world':
+					source = game.world.title;
+					break;
+				case 'module':
+					const module = game.modules.get(packageName);
+					source = module ? module.data.title : '';
+					break;
+			}
+	
 			packs[id] = `${label} [${source}]`;
 		});
 	
 		return packs;
-	}	
+	}
+	
 }
