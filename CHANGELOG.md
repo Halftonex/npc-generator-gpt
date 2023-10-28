@@ -1,5 +1,8 @@
 # NPC Generator (GPT) Changelog
 
+## v1.4.1
+* Hotfix Custom Compendiums
+
 ## v1.4.0
 * Automation for adding spells and items to the NPC's character sheet
 * Added spellcasting ability for each class
