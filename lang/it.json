@@ -42,64 +42,49 @@
             "hint": "Questo parametro influisce sulla tendenza del modello a includere o escludere specifiche parole o concetti nella risposta. Valori positivi incentivano l'inclusione di specifici concetti, mentre valori negativi li disincentivano."
         }
     },
-
     "npc-generator-gpt.button": "Genera NPC",
-
     "npc-generator-gpt.dialog": {
         "title": "NGG - Preferenze",
         "button": "Crea NPC",
         "buttonPending": "Connessione...",
         "random": "Casuale",
-
         "type": {
             "label": "Tipologia",
             "commoner": "Plebeo",
             "npc": "NPC",
             "monster": "Mostro"
         },
-
         "gender": {
             "label": "Sesso",
             "male": "Maschio",
             "female": "Femmina"
         },
-
         "race": {
             "label": "Razza",
             "dragonborn": "Dragonide",
-            "dwarf": {
-                "common": "Nano",
-                "hill": "Nano delle Colline",
-                "mountain": "Nano delle Montagne"
-            },
-            "elf": {
-                "common": "Elfo",
-                "high": "Elfo Alto",
-                "wood": "Elfo dei Boschi",
-                "drow": "Elfo Oscuro"
-            },
-            "gnome": {
-                "common":"Gnomo",
-                "forest": "Gnomo delle Foreste",
-                "rock": "Gnomo delle Rocce"
-            },
+            "dwarf-common": "Nano",
+            "dwarf-hill": "Nano delle Colline",
+            "dwarf-mountain": "Nano delle Montagne",
+            "elf-common": "Elfo",
+            "elf-high": "Elfo Alto",
+            "elf-wood": "Elfo dei Boschi",
+            "drow": "Elfo Oscuro",
+            "gnome-common": "Gnomo",
+            "gnome-forest": "Gnomo delle Foreste",
+            "gnome-rock": "Gnomo delle Rocce",
             "halfelf": "Mezzelfo",
-            "halfling": {
-                "common": "Halfling",
-                "lightfoot": "Halfling Piedelesto",
-                "stout": "Halfling Tozzo"
-            },
+            "halfling-common": "Halfling",
+            "halfling-lightfoot": "Halfling Piedelesto",
+            "halfling-stout": "Halfling Tozzo",
             "halforc": "Mezzorco",
             "human": "Umano",
             "tiefling": "Tiefling"
         },
-
         "subtype": {
+            "label": "Lavoro",
             "class": "Classe",
-            "job": "Lavoro",
             "subrace": "Sottorazza"
         },
-
         "commoner": {
             "alchemist": "Alchimista",
             "baker": "Fornaio",
@@ -121,7 +106,6 @@
             "scribe": "Scriba",
             "tailor": "Sarto"
         },
-
         "npc": {
             "barbarian": "Barbaro",
             "bard": "Bardo",
@@ -136,9 +120,9 @@
             "warlock": "Warlock",
             "wizard": "Mago"
         },
-
-        "cr": "CR",
-
+        "cr": {
+            "label": "CR"
+        },
         "alignment": {
             "label": "Allineamento",
             "lg": "Legale Buono",
@@ -152,17 +136,26 @@
             "ce": "Caotico Malvagio"
         }
     },
-
+    "npc-generator-gpt.enhance": {
+        "title": "NGG - Preferenze",
+        "button": "Migliora NPC",
+        "buttonPending": "Connessione...",
+        "radio": {
+            "background": "Biografia",
+            "enhance": "Modifica"
+        }
+    },
     "npc-generator-gpt.status": {
         "done": "Generazione NPC '{npcName}' Completata!",
+        "enhance": "Modifica NPC '{npcName}' Completata!",
         "error": "Richiesta Rifiutata! Attendi qualche secondo e riprova. (Consulta la console (F12) per maggiori dettagli)",
         "error2": "Errore nell'elaborazione della risposta di ChatGPT! Riprovare.",
         "error3": "Errore nella creazione del NPC! Riprovare.",
         "wait": "Per favore, attendi. Una richiesta è già in fase di elaborazione."
     },
-
     "npc-generator-gpt.query": {
-        "pre": "Crea un NPC {userQuery} per D&D 5 Edizione con valori in italiano. Struttura:",
+        "generate": "Crea un NPC {userQuery} per D&D 5 Edizione con valori in italiano. Struttura:",
+        "enhance": "Scrivi una biografia per l'NPC di D&D 5 Edizione {userQuery} con valori in italiano. Struttura:",
         "name": "Nome",
         "background": "Breve biografia",
         "appearance": "Descrizione fisica",
@@ -171,12 +164,10 @@
         "equip": "Equipaggiamento",
         "spells": "Incantesimi"
     },
-
     "npc-generator-gpt.sheet": {
         "appearance": "Aspetto",
         "background": "Biografia",
         "alignment": "Allineamento",
-        "class": "Classe/Lavoro",
         "unknown": "Sconosciuto",
         "roleplaying": "Interpretazione",
         "readaloud": "Leggi ai Giocatori",
