@@ -21,6 +21,7 @@ Since this module uses a free API endpoint, some requests might be rejected due 
 As an alternative, you can use your private API key to communicate directly with OpenAI's API.
 
 ## Usage
+### Generate
 After installing and enabling the module, you will find a new button on top of the Actors tab.
 
 <img src="images/button.png">
@@ -38,6 +39,16 @@ Here's an example of an NPC created with this module.
 <img src="images/sheet3.png">
 
 <img src="images/sheet4.png">
+
+### Enhance
+You will also find a new button on the NPC character sheet, this button will let you scale an existing NPC to a desired CR.
+<img src="images/button2.png">
+
+<img src="images/sheet5.png">
+
+<img src="images/sheet6.png">
+
+<img src="images/sheet7.png">
 
 ## Settings
 <img src="images/settings.png">
