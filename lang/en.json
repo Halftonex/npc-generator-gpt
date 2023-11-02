@@ -1,5 +1,5 @@
 {
-    "npc-generator-gpt.settings" : {
+    "npc-generator-gpt.settings": {
         "hideAlignment": {
             "name": "Hide Alignment",
             "hint": "Replaces the alignment with \"Unknown\" if you wish to hide it from the players. The alignment will still be imported into the secret section within the \"Biography\"."
@@ -24,7 +24,7 @@
         "apiKey": {
             "name": "API Key",
             "hint": "Your private OpenAI API key. [https://platform.openai.com/account/api-keys]"
-        },      
+        },
         "temperature": {
             "name": "Temperature",
             "hint": "This parameter affects the \"creativity\" of the model's responses. Higher values (close to 1) make the responses more random, while lower values (close to 0) make them more deterministic and focused. A high value might lead to greater variety in responses, but could also produce less predictable output."
@@ -32,7 +32,7 @@
         "top_p": {
             "name": "Top P",
             "hint": "Also known as \"nucleus sampling\", this parameter limits the pool of words or tokens the model might select based on probability. For example, with a top_p=0.9, the model will choose from the \"top\" 90% of the predicted words or tokens, excluding less probable options. This can help strike a balance between diversity and coherence in the output."
-        },        
+        },
         "freq_penality": {
             "name": "Frequency Penalty",
             "hint": "This parameter can be used to discourage answers that appear too often or are too common. Positive values penalize the use of frequent words, leading to potentially more original answers, while negative values encourage the use of frequent words."
@@ -40,66 +40,51 @@
         "pres_penality": {
             "name": "Presence Penalty",
             "hint": "This parameter influences the model's tendency to include or exclude specific words or concepts in the answer. Positive values encourage the inclusion of specific concepts, while negative values discourage them."
-        }        
+        }
     },
-
     "npc-generator-gpt.button": "Generate NPC",
-
     "npc-generator-gpt.dialog": {
         "title": "NGG - Preferences",
         "button": "Create NPC",
         "buttonPending": "Connecting...",
         "random": "Random",
-
         "type": {
             "label": "Type",
             "commoner": "Commoner",
             "npc": "NPC",
             "monster": "Monster"
         },
-
         "gender": {
             "label": "Gender",
             "male": "Male",
             "female": "Female"
         },
-
         "race": {
             "label": "Race",
             "dragonborn": "Dragonborn",
-            "dwarf": {
-                "common": "Dwarf",
-                "hill": "Hill Dwarf",
-                "mountain": "Mountain Dwarf"
-            },
-            "elf": {
-                "common": "Elf",
-                "high": "High Elf",
-                "wood": "Wood Elf",
-                "drow": "Dark Elf"
-            },
-            "gnome": {
-                "common":"Gnome",
-                "forest": "Forest Gnome",
-                "rock": "Rock Gnome"
-            },
+            "dwarf-common": "Dwarf",
+            "dwarf-hill": "Hill Dwarf",
+            "dwarf-mountain": "Mountain Dwarf",
+            "elf-common": "Elf",
+            "elf-high": "High Elf",
+            "elf-wood": "Wood Elf",
+            "drow": "Dark Elf",
+            "gnome-common": "Gnome",
+            "gnome-forest": "Forest Gnome",
+            "gnome-rock": "Rock Gnome",
             "halfelf": "Half-Elf",
-            "halfling": {
-                "common": "Halfling",
-                "lightfoot": "Lightfoot Halfling",
-                "stout": "Stout Halfling"
-            },
+            "halfling-common": "Halfling",
+            "halfling-lightfoot": "Lightfoot Halfling",
+            "halfling-stout": "Stout Halfling",
             "halforc": "Half-Orc",
             "human": "Human",
             "tiefling": "Tiefling"
         },
-
         "subtype": {
+            "label": "Job",
             "class": "Class",
-            "job": "Job",
             "subrace": "Subrace"
         },
-
         "commoner": {
             "alchemist": "Alchemist",
             "baker": "Baker",
@@ -121,7 +106,6 @@
             "scribe": "Scribe",
             "tailor": "Tailor"
         },
-
         "npc": {
             "barbarian": "Barbarian",
             "bard": "Bard",
@@ -136,9 +120,9 @@
             "warlock": "Warlock",
             "wizard": "Wizard"
         },
-
-        "cr": "CR",
-
+        "cr": {
+            "label": "CR"
+        },
         "alignment": {
             "label": "Alignment",
             "lg": "Lawful Good",
@@ -152,17 +136,26 @@
             "ce": "Chaotic Evil"
         }
     },
-
+    "npc-generator-gpt.enhance": {
+        "title": "NGG - Preferences",
+        "button": "Enhance NPC",
+        "buttonPending": "Connecting...",
+        "radio": {
+            "background": "Biography",
+            "enhance": "Enhance"
+        }
+    },
     "npc-generator-gpt.status": {
         "done": "NPC '{npcName}' Generation Completed!",
+        "enhance": "NPC '{npcName}' Enhancing Completed!",
         "error": "Request Denied! Wait a few seconds and try again. (See console (F12) for more details)",
         "error2": "Error processing ChatGPT's response! Try again.",
         "error3": "Error creating the NPC! Try again.",
         "wait": "Please wait. A request is already being processed."
     },
-
     "npc-generator-gpt.query": {
-        "pre": "Create an NPC {userQuery} for D&D 5e. Structure:",
+        "generate": "Create a NPC {userQuery} for D&D 5e. Structure:",
+        "enhance": "Write the D&D 5e NPC {userQuery} biography. Structure:",
         "name": "Name",
         "background": "Short biography",
         "appearance": "Appearance",
@@ -171,12 +164,10 @@
         "equip": "Equipment",
         "spells": "Spells"
     },
-
     "npc-generator-gpt.sheet": {
         "appearance": "Appearance",
         "background": "Background",
         "alignment": "Alignment",
-        "class": "Class/Job",
         "unknown": "Unknown",
         "roleplaying": "Roleplaying",
         "readaloud": "Read Aloud to Players",
