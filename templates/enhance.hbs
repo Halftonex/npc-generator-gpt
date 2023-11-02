@@ -1,0 +1,15 @@
+<div class="npcGenGPT">
+    <div>
+        <label for="background">{{localize 'npc-generator-gpt.enhance.radio.background'}}:</label>
+        <input type="checkbox" id="background" value="background">
+    </div>
+    <div>
+        <label for="cr">{{localize 'npc-generator-gpt.dialog.cr.label'}}:</label>
+        <select id="cr">
+            {{#each selectOptions}}
+            <option value="{{value}}" {{isSelected}}>{{#if translate}}{{localize label}}{{else}}{{label}}{{/if}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <button type="submit" id="npcGenGPT_enhance-btn">{{localize 'npc-generator-gpt.enhance.button'}}</button>
+</div>
