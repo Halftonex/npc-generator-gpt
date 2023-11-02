@@ -45,6 +45,8 @@ You will also find a new button on the NPC character sheet, this button will let
 
 <img src="images/button2.png">
 
+<img src="images/button3.png">
+
 <img src="images/sheet5.png">
 
 <img src="images/sheet6.png">
