@@ -4,7 +4,7 @@ import { npcGenGPTEnhanceNPC } from "./module/enhanceNPC.js";
 
 Hooks.once('ready', () => {
     console.log("NPC Generator (GPT) | Initializing Settings")
-    game.npcGenGPT = new npcGenGPTSettings();
+    new npcGenGPTSettings();
 });
 
 Hooks.on("renderActorDirectory", async (app, html) => {
@@ -19,13 +19,13 @@ Hooks.on("renderActorDirectory", async (app, html) => {
     }
 });
 
-/*Hooks.on("getActorSheetHeaderButtons", async (app, buttons) => {
+Hooks.on("getActorSheetHeaderButtons", async (app, buttons) => {
     if (game.user.isGM && app.object.type === 'npc') {
         buttons.unshift({
             label: 'NGG',
             class: 'npc-generator-gpt',
             icon: 'fa-light fa-atom',
-            onclick: ev => { new npcGenGPTEnhanceNPC }
+            onclick: ev => { new npcGenGPTEnhanceNPC(app.object).render(true) }
         });
     }
-});*/
+});
