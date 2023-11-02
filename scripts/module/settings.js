@@ -131,8 +131,7 @@ export class npcGenGPTSettings {
 					source = game.world.title;
 					break;
 				case 'module':
-					const module = game.modules.get(packageName);
-					source = module ? module.data.title : '';
+					source = game.modules.get(packageName);
 					break;
 			}
 	
