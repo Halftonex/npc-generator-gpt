@@ -1,88 +1,13 @@
 <div class="npcGenGPT">
+    {{#each category}}
     <div>
-        <label for="type">{{localize 'npc-generator-gpt.dialog.type.label'}}:</label>
-        <select id="type">
-            <option value="commoner">{{localize 'npc-generator-gpt.dialog.type.commoner'}}</option>
-            <option value="npc">{{localize 'npc-generator-gpt.dialog.type.npc'}}</option>
+        <label for="{{value}}">{{localize label}}:</label>
+        <select id="{{value}}">
+            {{#each option}}
+            <option value="{{value}}">{{#if translate}}{{localize label}}{{else}}{{label}}{{/if}}</option>
+            {{/each}}
         </select>
     </div>
-    <div>
-        <label for="gender">{{localize 'npc-generator-gpt.dialog.gender.label'}}:</label>
-        <select id="gender">
-            <option value="random">{{localize 'npc-generator-gpt.dialog.random'}}</option>
-            <option value="male">{{localize 'npc-generator-gpt.dialog.gender.male'}}</option>
-            <option value="female">{{localize 'npc-generator-gpt.dialog.gender.female'}}</option>
-        </select>
-    </div>
-    <div>
-        <label for="race">{{localize 'npc-generator-gpt.dialog.race.label'}}:</label>
-        <select id="race">
-            <option value="random">{{localize 'npc-generator-gpt.dialog.random'}}</option>
-            <option value="dragonborn">{{localize 'npc-generator-gpt.dialog.race.dragonborn'}}</option>
-            <option value="dwarf">{{localize 'npc-generator-gpt.dialog.race.dwarf.common'}}</option>
-            <option value="dwarf">{{localize 'npc-generator-gpt.dialog.race.dwarf.hill'}}</option>
-            <option value="dwarf">{{localize 'npc-generator-gpt.dialog.race.dwarf.mountain'}}</option>
-            <option value="elf">{{localize 'npc-generator-gpt.dialog.race.elf.common'}}</option>
-            <option value="elf">{{localize 'npc-generator-gpt.dialog.race.elf.high'}}</option>
-            <option value="elf">{{localize 'npc-generator-gpt.dialog.race.elf.wood'}}</option>
-            <option value="drow">{{localize 'npc-generator-gpt.dialog.race.elf.drow'}}</option>
-            <option value="gnome">{{localize 'npc-generator-gpt.dialog.race.gnome.common'}}</option>
-            <option value="gnome">{{localize 'npc-generator-gpt.dialog.race.gnome.forest'}}</option>
-            <option value="gnome">{{localize 'npc-generator-gpt.dialog.race.gnome.rock'}}</option>
-            <option value="halfelf">{{localize 'npc-generator-gpt.dialog.race.halfelf'}}</option>
-            <option value="halfling">{{localize 'npc-generator-gpt.dialog.race.halfling.common'}}</option>
-            <option value="halfling">{{localize 'npc-generator-gpt.dialog.race.halfling.lightfoot'}}</option>
-            <option value="halfling">{{localize 'npc-generator-gpt.dialog.race.halfling.stout'}}</option>
-            <option value="halforc">{{localize 'npc-generator-gpt.dialog.race.halforc'}}</option>
-            <option value="human">{{localize 'npc-generator-gpt.dialog.race.human'}}</option>
-            <option value="tiefling">{{localize 'npc-generator-gpt.dialog.race.tiefling'}}</option>
-        </select>
-    </div>
-    <div>
-        <label for="subtype">{{localize 'npc-generator-gpt.dialog.subtype.job'}}:</label>
-        <select id="subtype">
-            <option value="random">{{localize 'npc-generator-gpt.dialog.random'}}</option>
-            <option value="alchemist">{{localize 'npc-generator-gpt.dialog.commoner.alchemist'}}</option>
-            <option value="baker">{{localize 'npc-generator-gpt.dialog.commoner.baker'}}</option>
-            <option value="barkeep">{{localize 'npc-generator-gpt.dialog.commoner.barkeep'}}</option>
-            <option value="blacksmith">{{localize 'npc-generator-gpt.dialog.commoner.blacksmith'}}</option>
-            <option value="butcher">{{localize 'npc-generator-gpt.dialog.commoner.butcher'}}</option>
-            <option value="carpenter">{{localize 'npc-generator-gpt.dialog.commoner.carpenter'}}</option>
-            <option value="cobbler">{{localize 'npc-generator-gpt.dialog.commoner.cobbler'}}</option>
-            <option value="farmer">{{localize 'npc-generator-gpt.dialog.commoner.farmer'}}</option>
-            <option value="fisherman">{{localize 'npc-generator-gpt.dialog.commoner.fisherman'}}</option>
-            <option value="guard">{{localize 'npc-generator-gpt.dialog.commoner.guard'}}</option>
-            <option value="healer">{{localize 'npc-generator-gpt.dialog.commoner.healer'}}</option>
-            <option value="hermit">{{localize 'npc-generator-gpt.dialog.commoner.hermit'}}</option>
-            <option value="hunter">{{localize 'npc-generator-gpt.dialog.commoner.hunter'}}</option>
-            <option value="innkeeper">{{localize 'npc-generator-gpt.dialog.commoner.innkeeper'}}</option>
-            <option value="merchant">{{localize 'npc-generator-gpt.dialog.commoner.merchant'}}</option>
-            <option value="messenger">{{localize 'npc-generator-gpt.dialog.commoner.messenger'}}</option>
-            <option value="miner">{{localize 'npc-generator-gpt.dialog.commoner.miner'}}</option>
-            <option value="scribe">{{localize 'npc-generator-gpt.dialog.commoner.scribe'}}</option>
-            <option value="tailor">{{localize 'npc-generator-gpt.dialog.commoner.tailor'}}</option>
-        </select>
-    </div>
-    <div>
-        <label for="alignment">{{localize 'npc-generator-gpt.dialog.alignment.label'}}:</label>
-        <select id="alignment">
-            <option value="random">{{localize 'npc-generator-gpt.dialog.random'}}</option>
-            <option value="lg">{{localize 'npc-generator-gpt.dialog.alignment.lg'}}</option>
-            <option value="ng">{{localize 'npc-generator-gpt.dialog.alignment.ng'}}</option>
-            <option value="cg">{{localize 'npc-generator-gpt.dialog.alignment.cg'}}</option>
-            <option value="ln">{{localize 'npc-generator-gpt.dialog.alignment.ln'}}</option>
-            <option value="n">{{localize 'npc-generator-gpt.dialog.alignment.n'}}</option>
-            <option value="cn">{{localize 'npc-generator-gpt.dialog.alignment.cn'}}</option>
-            <option value="le">{{localize 'npc-generator-gpt.dialog.alignment.le'}}</option>
-            <option value="ne">{{localize 'npc-generator-gpt.dialog.alignment.ne'}}</option>
-            <option value="ce">{{localize 'npc-generator-gpt.dialog.alignment.ce'}}</option>
-        </select>
-    </div>
-    <div>
-        <label for="cr">{{localize 'npc-generator-gpt.dialog.cr'}}:</label>
-        <select id="cr">
-            <option value="0">0</option>
-        </select>
-    </div>
+    {{/each}}
     <button type="submit" id="npcGenGPT_create-btn">{{localize 'npc-generator-gpt.dialog.button'}}</button>
 </div>
