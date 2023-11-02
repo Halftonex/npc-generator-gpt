@@ -15,11 +15,6 @@ To install, follow these instructions:
 1. Click the Install Module button and enter the following URL: https://github.com/Halftonex/npc-generator-gpt/releases/latest/download/module.json
 1. Click Install and wait for installation to complete.
 
-## Limitations
-Since this module uses a free API endpoint, some requests might be rejected due to high demand (or it could be even offline), just wait a bit and try again.
-
-As an alternative, you can use your private API key to communicate directly with OpenAI's API.
-
 ## Usage
 ### Generate
 After installing and enabling the module, you will find a new button on top of the Actors tab.
