@@ -42,6 +42,7 @@ Here's an example of an NPC created with this module.
 
 ### Enhance
 You will also find a new button on the NPC character sheet, this button will let you scale an existing NPC to a desired CR.
+
 <img src="images/button2.png">
 
 <img src="images/sheet5.png">
