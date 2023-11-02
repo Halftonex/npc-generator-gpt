@@ -1,5 +1,12 @@
 # NPC Generator (GPT) Changelog
 
+## v1.5.0
+* Added the Enhance NPC feature
+* Added extra languages for Humans and Halfelf
+* Abilities now scale with CR (abilities with proficiency will scale more than the others)
+* Removed support for BetterChatGPT API
+* Added formula for NPC's HP
+
 ## v1.4.1
 * Hotfix Custom Compendiums
 
