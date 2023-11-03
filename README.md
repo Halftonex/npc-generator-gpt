@@ -16,7 +16,7 @@ To install, follow these instructions:
 1. Click Install and wait for installation to complete.
 
 ## Usage
-1. Go to 
+1. Go to (https://platform.openai.com/account/api-keys)[https://platform.openai.com/account/api-keys]
 1. If you don't already have one, create a new account.
 1. Generate a new secret key.
 1. Open the module settings.
