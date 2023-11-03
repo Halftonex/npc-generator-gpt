@@ -16,6 +16,12 @@ To install, follow these instructions:
 1. Click Install and wait for installation to complete.
 
 ## Usage
+1. Go to 
+1. If you don't already have one, create a new account.
+1. Generate a new secret key.
+1. Open the module settings.
+1. Paste your secret key in the "Api Key" field.
+
 ### Generate
 After installing and enabling the module, you will find a new button on top of the Actors tab.
 
