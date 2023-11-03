@@ -42,7 +42,11 @@ You will also find a new button on the NPC character sheet, this button will let
 
 <img src="images/button3.png">
 
+Before
+
 <img src="images/sheet5.png">
+
+After
 
 <img src="images/sheet6.png">
 
