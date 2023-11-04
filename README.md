@@ -25,7 +25,7 @@ To install, follow these instructions:
 ---
 
 **N.B.** 
-*OpenAI's APIs are not free, although, given their limited usage by the module, they are very cost-effective. The average cost per generation is about $0.0010. You can find the exact generation cost as log in the console (F12).*
+*OpenAI's APIs are not free, although, given their limited usage by the module, they are very cost-effective. The average cost per generation is about $0.001. You can find the exact generation cost as log in the console (F12).*
 
 ---
 
