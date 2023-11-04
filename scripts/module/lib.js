@@ -34,6 +34,7 @@ export class npcGenGPTLib {
                 throw new Error(`${response.status} | Message: ${errorMsg}`);
             }
 
+            this.logGptDataCost(responseData);
             return this.convertGPTData(responseData)
         } catch (error) {
             console.error(error);
@@ -90,6 +91,12 @@ export class npcGenGPTLib {
                 throw new Error(error.message);
             }
         }
+    }
+
+    static logGptDataCost(gptData) {
+        const inputCost = 0.0015 / (1000 / gptData.usage.prompt_tokens);
+        const outputCost = 0.002 / (1000 / gptData.usage.completion_tokens);
+        console.log(COSTANTS.LOG_PREFIX, 'API call cost:', `$${inputCost + outputCost}`);
     }
 
     static getDialogCategories() {
