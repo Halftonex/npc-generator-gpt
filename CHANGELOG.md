@@ -1,5 +1,8 @@
 # NPC Generator (GPT) Changelog
 
+## v1.5.1
+* Added API call cost as log in the console
+
 ## v1.5.0
 * Added the Enhance NPC feature
 * Added extra languages for Humans and Halfelf
