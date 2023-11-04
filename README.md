@@ -25,8 +25,7 @@ To install, follow these instructions:
 ---
 
 **N.B.** 
-*OpenAI's APIs are not free, although, given their limited usage by the module, they are very cost-effective.*
-*You can check the costs [here](https://openai.com/pricing), listed under the GPT-3.5 Turbo model.*
+*OpenAI's APIs are not free, although, given their limited usage by the module, they are very cost-effective. The average cost per generation is about $0.0010. You can find the exact generation cost as log in the console (F12).*
 
 ---
 
