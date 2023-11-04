@@ -22,6 +22,10 @@ To install, follow these instructions:
 1. Open the module settings.
 1. Paste your secret key in the "Api Key" field.
 
+**N.B.** 
+* OpenAI's APIs are not free, although, given their limited usage by the module, they are very cost-effective.
+* You can check the costs [here](https://openai.com/pricing), listed under the GPT-3.5 Turbo model.
+
 ### Generate
 After installing and enabling the module, you will find a new button on top of the Actors tab.
 
