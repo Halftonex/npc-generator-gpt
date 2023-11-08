@@ -20,12 +20,16 @@ export class npcGenGPTEnhanceNPC extends Application {
 
     async getData(options) {
         const data = await super.getData(options);
-        data.selectOptions = npcGenGPTLib.getDialogOptions('cr', true).map(obj => {
-            if(obj.value == this.npc.system.details.cr) return { ...obj, isSelected: 'selected' };
+        data.selectOptions = npcGenGPTLib.getDialogOptions('cr', true)
+          .filter(obj => obj.value !== "random") 
+          .map(obj => {
+            if (obj.value === this.npc.system.details.cr) {
+              return { ...obj, isSelected: 'selected' };
+            }
             return obj;
-        });
-        return data
-    }
+          });
+        return data;
+      }      
 
     activateListeners(html) {
         super.activateListeners(html);
