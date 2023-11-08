@@ -2,10 +2,10 @@
   "id": "npc-generator-gpt",
   "title": "NPC Generator (GPT) D&D 5e",
   "description": "NPC generator for D&D5e powered by ChatGPT",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "compatibility": {
     "minimum": "11",
-    "verified": "11.314"
+    "verified": "11.315"
   },
   "authors": [
     {

@@ -1,5 +1,8 @@
 # NPC Generator (GPT) Changelog
 
+## v1.5.4
+* Minor fixes
+
 ## v1.5.1
 * Added API call cost as log in the console
 
