@@ -94,9 +94,9 @@ export class npcGenGPTLib {
     }
 
     static logGptDataCost(gptData) {
-        const inputCost = 0.0015 / (1000 / gptData.usage.prompt_tokens);
+        const inputCost = 0.001 / (1000 / gptData.usage.prompt_tokens);
         const outputCost = 0.002 / (1000 / gptData.usage.completion_tokens);
-        console.log(COSTANTS.LOG_PREFIX, 'API call cost:', `$${inputCost + outputCost}`);
+        console.warn(COSTANTS.LOG_PREFIX, 'API call cost:', `$${inputCost + outputCost}`);
     }
 
     static getDialogCategories() {
