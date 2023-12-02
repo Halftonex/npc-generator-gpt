@@ -48,6 +48,8 @@
         "button": "Create NPC",
         "buttonPending": "Connecting...",
         "random": "Random",
+        "name": "Name",
+        "ph-name": "Optional",
         "type": {
             "label": "Type",
             "commoner": "Commoner",

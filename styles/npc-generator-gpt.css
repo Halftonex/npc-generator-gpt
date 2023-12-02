@@ -26,6 +26,15 @@
     height: 100%;
     color: #fff;
 }
+.npcGenGPT input {
+    float: right;
+    padding: 0 5px;
+    width: 55%;
+    height: 100%;
+    border: 1px solid #565869;
+    color: #d1d5db;
+}
+.npcGenGPT input:focus { box-shadow: none; }
 .npcGenGPT select { 
     float: right;
     width: 55%;

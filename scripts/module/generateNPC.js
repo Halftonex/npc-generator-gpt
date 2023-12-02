@@ -13,7 +13,7 @@ export class npcGenGPTGenerateNPC extends Application {
             title: game.i18n.localize("npc-generator-gpt.dialog.title"),
             template: `modules/${COSTANTS.MODULE_ID}/templates/${COSTANTS.TEMPLATE.DIALOG}`,
             width: 300,
-            height: 330
+            height: 370
         });
     }
 
@@ -76,6 +76,7 @@ export class npcGenGPTGenerateNPC extends Application {
         });
         const { cr, race, type, subtype } = this.data.details;
         subtype.value = (type.value === 'commoner') ? type.value : subtype.value;
+        this.data.details.optionalName = this.element.find('#name').val();
         this.data.details.sheet = (type.value === 'commoner') ? 'npc-generator-gpt.dialog.subtype.label' : 'npc-generator-gpt.dialog.subtype.class';
         this.data.abilities = this.generateNpcAbilities(subtype.value, cr.value);
         this.data.attributes = this.generateNpcAttributes(race.value, subtype.value, cr.value);
@@ -85,8 +86,9 @@ export class npcGenGPTGenerateNPC extends Application {
     }
 
     initQuery() {
-        const { gender, race, subtype, alignment } = this.data.details;
-        const options = `${gender.label}, ${race.label}, ${subtype.label}, ${alignment.label}`;
+        const { optionalName, gender, race, subtype, alignment } = this.data.details;
+        let options = `${gender.label}, ${race.label}, ${subtype.label}, ${alignment.label}`;
+        if (optionalName) options = `(${game.i18n.localize("npc-generator-gpt.query.name")}: ${optionalName}) ${options}`; 
         return npcGenGPTDataStructure.getGenerateQueryTemplate(options)
     }
 

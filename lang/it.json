@@ -48,6 +48,8 @@
         "button": "Crea NPC",
         "buttonPending": "Connessione...",
         "random": "Casuale",
+        "name": "Nome",
+        "ph-name": "Opzionale",
         "type": {
             "label": "Tipologia",
             "commoner": "Plebeo",
