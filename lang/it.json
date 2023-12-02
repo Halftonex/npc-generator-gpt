@@ -153,6 +153,7 @@
         "error": "Richiesta Rifiutata! Attendi qualche secondo e riprova. (Consulta la console (F12) per maggiori dettagli)",
         "error2": "Errore nell'elaborazione della risposta di ChatGPT! Riprovare.",
         "error3": "Errore nella creazione del NPC! Riprovare.",
+        "error4": "Non disponi di credito nel tuo account OpenAI. Visitare https://platform.openai.com/account/billing/overview",
         "wait": "Per favore, attendi. Una richiesta è già in fase di elaborazione."
     },
     "npc-generator-gpt.query": {

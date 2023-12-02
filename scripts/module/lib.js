@@ -30,7 +30,10 @@ export class npcGenGPTLib {
 
             if (!response.ok) {
                 const errorMsg = (typeof responseData.error.message === 'string') ? responseData.error.message : responseData.error.message.message;
-                ui.notifications.error(`${COSTANTS.LOG_PREFIX} ${game.i18n.localize("npc-generator-gpt.status.error")}`);
+                if (response.status == 429) 
+                    ui.notifications.error(`${COSTANTS.LOG_PREFIX} ${game.i18n.localize("npc-generator-gpt.status.error4")}`);
+                else
+                    ui.notifications.error(`${COSTANTS.LOG_PREFIX} ${game.i18n.localize("npc-generator-gpt.status.error")}`);
                 throw new Error(`${response.status} | Message: ${errorMsg}`);
             }
 

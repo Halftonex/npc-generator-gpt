@@ -1,5 +1,8 @@
 # NPC Generator (GPT) Changelog
 
+## v1.5.5
+* Added optional name input
+
 ## v1.5.4
 * Minor fixes
 

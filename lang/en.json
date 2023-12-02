@@ -153,6 +153,7 @@
         "error": "Request Denied! Wait a few seconds and try again. (See console (F12) for more details)",
         "error2": "Error processing ChatGPT's response! Try again.",
         "error3": "Error creating the NPC! Try again.",
+        "error4": "You do not have any credit in your OpenAI account. Please visit https://platform.openai.com/account/billing/overview",
         "wait": "Please wait. A request is already being processed."
     },
     "npc-generator-gpt.query": {
